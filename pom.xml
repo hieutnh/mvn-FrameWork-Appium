@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>appiumProject</groupId>
+	<artifactId>appiumProject</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>appiumProject</name>
+
+	<properties>
+		<!-- Compiler Code with Java 8 -->
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<!-- Global variable for dependencies -->
+		<webdriver.version>3.141.59</webdriver.version>
+		<testng.version>6.14.3</testng.version>
+		<jackson.version>2.9.4</jackson.version>
+		<webdrivermanager.version>4.2.2</webdrivermanager.version>
+	</properties>
+	<!-- Libraies -->
+	<dependencies>
+		<dependency>
+			<groupId>io.appium</groupId>
+			<artifactId>java-client</artifactId>
+			<version>7.4.1</version>
+		</dependency>
+	</dependencies>
+</project>

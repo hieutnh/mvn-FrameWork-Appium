@@ -1,0 +1,7 @@
+{
+  "platformName": "Android",
+  "deviceName": "Pixel 3",
+  "automationName": "UiAutomator2",
+  "udid": "emulator-5554",
+  "app": "E:\\Automation\\2.Appium\\2.Source Code\\1.maven-Appium-Project\\APK\\ApiDemos-debug.apk"
+}
