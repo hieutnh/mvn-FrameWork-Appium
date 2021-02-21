@@ -1,12 +1,18 @@
 package AndroidFindElement;
+import org.openqa.selenium.By;
+
 import commons.CreateDriverSession;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 
 public class AndroidFindElements {
 
     public static void main(String[] args) throws Exception {
         AppiumDriver driver = CreateDriverSession.initializeDriver("Android");
+        
+        driver.findElement(MobileBy.AccessibilityId(""));
+        driver.findElement(By.xpath(""));
 
         MobileElement myElement = (MobileElement) driver.findElementByAccessibilityId("Accessibility");
         System.out.println(myElement.getText());
