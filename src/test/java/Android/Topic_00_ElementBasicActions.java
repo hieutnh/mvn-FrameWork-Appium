@@ -1,4 +1,4 @@
-package AndroidFindElement;
+package Android;
 
 import org.openqa.selenium.By;
 
@@ -8,7 +8,7 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 
-public class ElementBasicActions {
+public class Topic_00_ElementBasicActions {
 
 	public static void main(String[] args) throws Exception {
 		AppiumDriver driver = CreateDriverSession.initializeDriver("Android");

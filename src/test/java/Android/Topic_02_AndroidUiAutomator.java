@@ -1,11 +1,11 @@
-package AndroidFindElement;
+package Android;
 
 import commons.CreateDriverSession;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.FindsByAndroidUIAutomator;
 import io.appium.java_client.MobileElement;
 
-public class AndroidUiAutomator {
+public class Topic_02_AndroidUiAutomator {
 
 	public static void main(String[] args) throws Exception {
 		AppiumDriver driver = CreateDriverSession.initializeDriver("Android");

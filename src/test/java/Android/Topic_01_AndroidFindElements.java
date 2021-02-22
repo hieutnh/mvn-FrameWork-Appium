@@ -1,4 +1,4 @@
-package AndroidFindElement;
+package Android;
 import org.openqa.selenium.By;
 
 import commons.CreateDriverSession;
@@ -6,7 +6,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 
-public class AndroidFindElements {
+public class Topic_01_AndroidFindElements {
 
     public static void main(String[] args) throws Exception {
         AppiumDriver driver = CreateDriverSession.initializeDriver("Android");
