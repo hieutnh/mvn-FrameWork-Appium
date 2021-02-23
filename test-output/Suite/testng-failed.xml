@@ -3,13 +3,15 @@
 <suite name="Failed suite [Suite]">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="Android.TestAppium">
+      <class name="Android.Topic_11_Basic_code">
         <methods>
-          <include name="f"/>
+          <include name="invalidUsername"/>
           <include name="afterClass"/>
           <include name="BeforeClass"/>
+          <include name="invalidPassword"/>
+          <include name="SuccessfulLogin"/>
         </methods>
-      </class> <!-- Android.TestAppium -->
+      </class> <!-- Android.Topic_11_Basic_code -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

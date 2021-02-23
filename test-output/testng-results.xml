@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-02-23T17:46:55 ICT" name="Suite" finished-at="2021-02-23T17:47:20 ICT" duration-ms="24807">
+  <suite started-at="2021-02-23T21:29:23 ICT" name="Suite" finished-at="2021-02-23T21:29:43 ICT" duration-ms="20037">
     <groups>
     </groups>
-    <test started-at="2021-02-23T17:46:55 ICT" name="Test" finished-at="2021-02-23T17:47:20 ICT" duration-ms="24807">
-      <class name="Android.TestAppium">
-        <test-method is-config="true" signature="BeforeClass()[pri:0, instance:Android.TestAppium@a3d8174]" started-at="2021-02-23T17:46:55 ICT" name="BeforeClass" finished-at="2021-02-23T17:47:18 ICT" duration-ms="23664" status="PASS">
+    <test started-at="2021-02-23T21:29:23 ICT" name="Test" finished-at="2021-02-23T21:29:43 ICT" duration-ms="20037">
+      <class name="Android.Topic_11_Basic_code">
+        <test-method is-config="true" signature="BeforeClass()[pri:0, instance:Android.Topic_11_Basic_code@4944252c]" started-at="2021-02-23T21:29:23 ICT" name="BeforeClass" finished-at="2021-02-23T21:29:32 ICT" duration-ms="9012" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeClass -->
-        <test-method signature="f()[pri:0, instance:Android.TestAppium@a3d8174]" started-at="2021-02-23T17:47:18 ICT" name="f" finished-at="2021-02-23T17:47:18 ICT" duration-ms="6" status="PASS">
+        <test-method signature="TC_01_invalidUsername()[pri:0, instance:Android.Topic_11_Basic_code@4944252c]" started-at="2021-02-23T21:29:32 ICT" name="TC_01_invalidUsername" finished-at="2021-02-23T21:29:36 ICT" duration-ms="4447" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- f -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:Android.TestAppium@a3d8174]" started-at="2021-02-23T17:47:18 ICT" name="afterClass" finished-at="2021-02-23T17:47:20 ICT" duration-ms="1108" status="PASS">
+        </test-method> <!-- TC_01_invalidUsername -->
+        <test-method signature="TC_02_invalidPassword()[pri:0, instance:Android.Topic_11_Basic_code@4944252c]" started-at="2021-02-23T21:29:36 ICT" name="TC_02_invalidPassword" finished-at="2021-02-23T21:29:39 ICT" duration-ms="2437" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_02_invalidPassword -->
+        <test-method signature="TC_03_SuccessfulLogin()[pri:0, instance:Android.Topic_11_Basic_code@4944252c]" started-at="2021-02-23T21:29:39 ICT" name="TC_03_SuccessfulLogin" finished-at="2021-02-23T21:29:43 ICT" duration-ms="3757" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_03_SuccessfulLogin -->
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:Android.Topic_11_Basic_code@4944252c]" started-at="2021-02-23T21:29:43 ICT" name="afterClass" finished-at="2021-02-23T21:29:43 ICT" duration-ms="359" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- Android.TestAppium -->
+      </class> <!-- Android.Topic_11_Basic_code -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

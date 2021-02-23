@@ -3,7 +3,7 @@
 
 	<test name="Test">
 		<classes>
-			<class name="Android.TestAppium" />
+			<class name="Android.Topic_11_Basic_code" />
 		</classes>
 	</test>
 
