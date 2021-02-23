@@ -21,13 +21,13 @@ public class CreateDriverSession {
 
 		switch (platformName) {
 		case "Android":
-//			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel 3");
-			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "redmi");
+			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel 3");
+//			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "redmi");
 			caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
 
 			// adb devices to get UDID
-//			caps.setCapability(MobileCapabilityType.UDID, "emulator-5554");
-			caps.setCapability(MobileCapabilityType.UDID, "1876ca52");
+			caps.setCapability(MobileCapabilityType.UDID, "emulator-5554");
+//			caps.setCapability(MobileCapabilityType.UDID, "1876ca52");
 
 			// 1.Open android studio
 			// 2.Name of device
@@ -42,7 +42,9 @@ public class CreateDriverSession {
 			
 			// Open app installed
 			caps.setCapability("appPackage", "io.appium.android.apis");
+//			caps.setCapability("appPackage", "com.android.chrome");
 			caps.setCapability("appActivity", "io.appium.android.apis.ApiDemos");
+//			caps.setCapability("appActivity", "com.google.android.apps.chrome.Main");
 
 			// unlock device
 			// caps.setCapability("unlockType", "password");

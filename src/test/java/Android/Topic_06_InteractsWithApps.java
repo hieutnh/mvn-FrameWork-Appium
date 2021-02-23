@@ -33,7 +33,7 @@ public class Topic_06_InteractsWithApps {
 		// khởi chạy 1 ứng dụng đang mở và restart lại session
 		// driver.launchApp();
 
-		// Ứng đụng đang chạy,Test cho ẩn xuống sau n giây và mở lên lại
+		// Ứng đụng đang chạy,TestAppium cho ẩn xuống sau n giây và mở lên lại
 		 driver.runAppInBackground(Duration.ofMillis(5000));
 
 		// Kích hoạt và mở ứng dụng đã được cài đặt nhưng không được chạy

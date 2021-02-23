@@ -13,7 +13,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<!-- Global variable for dependencies -->
 		<webdriver.version>3.141.59</webdriver.version>
-		<testng.version>6.14.3</testng.version>
+		<testng.version>7.1.0</testng.version>
 		<jackson.version>2.9.4</jackson.version>
 		<webdrivermanager.version>4.2.2</webdrivermanager.version>
 	</properties>
@@ -22,7 +22,15 @@
 		<dependency>
 			<groupId>io.appium</groupId>
 			<artifactId>java-client</artifactId>
-			<version>7.4.1</version>
+			<version>7.3.0</version>
+		</dependency>
+
+		<!-- TestNG -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testng.version}</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 </project>

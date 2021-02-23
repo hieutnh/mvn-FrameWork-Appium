@@ -41,6 +41,6 @@ public class Topic_09_WebViewAndAutomate {
 		System.out.println(driver.findElement(By.cssSelector("body > h1")).getText());
 		System.out.println(driver.findElement(By.xpath("//input[@id='i_am_a_textbox']")).getText());
 
-		driver.context("NATIVE_APP");
+		driver.context(contextHandles.toArray()[0].toString());
 	}
 }
