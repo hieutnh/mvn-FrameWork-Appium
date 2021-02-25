@@ -1,4 +1,4 @@
-package pageUI;
+package pageUIAndroid;
 
 public class AbstractPageUI {
 	public static final String DYNAMIC_TEXTBOX_BY_NAME = "//input[@name='%s']";

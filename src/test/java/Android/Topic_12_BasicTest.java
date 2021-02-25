@@ -19,11 +19,12 @@ public class Topic_12_BasicTest extends AbstractTest {
 		driver = getBrowserDriver(emulator, platformName, platformVersion, udid, deviceName);
 	}
 
+	@Parameters({ "platformName" })
 	@Test
-	public void TC_01_invalidUsername() {
-		loginPage = PageGeneratorManager.loginPage(driver);
-//		loginPage.inputUserName("username");
-		loginPage.clicktoLoginButton();
+	public void TC_01_invalidUsername(String platformName) {
+		loginPage = PageGeneratorManager.getLoginPage(driver);
+		loginPage.inputUserName(platformName,"username");
+		loginPage.clicktoLoginButton(platformName);
 	}
 
 	loginPageObject loginPage;

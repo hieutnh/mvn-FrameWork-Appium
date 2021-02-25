@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.AppiumDriver;
@@ -13,6 +14,7 @@ import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 
 public class AbstractTest {
+	protected static ThreadLocal<AppiumDriver> threadLocalDriver = new ThreadLocal<AppiumDriver>();
 	protected AppiumDriver driver;
 	protected Properties pros;
 	InputStream inputStream;
@@ -35,17 +37,19 @@ public class AbstractTest {
 				caps.setCapability("automationName", pros.getProperty("androidAutomationName"));
 				caps.setCapability("appPackage", pros.getProperty("androdiAppPackage"));
 				caps.setCapability("appActivity", pros.getProperty("androidActivity"));
-				if(emulator.equalsIgnoreCase("true")) {
+				if (emulator.equalsIgnoreCase("true")) {
 					caps.setCapability("platformVersion", platformVersion);
 					caps.setCapability("avd", deviceName);
-				}else {
+					caps.setCapability("avdLaunchTimeout", 120000);
+				} else {
 					caps.setCapability("udid", udid);
 				}
 				URL androidUrl = getClass().getClassLoader().getResource(pros.getProperty("androidAppLocation"));
 				caps.setCapability("app", androidUrl);
 				url = new URL(pros.getProperty("appiumURL"));
 
-				driver = new AndroidDriver(url, caps);
+				// driver = new AndroidDriver(url, caps);
+				setDriver(new AndroidDriver(url, caps));
 				break;
 			case "iOS":
 				caps.setCapability("automationName", pros.getProperty("iOSAutomationName"));
@@ -54,7 +58,7 @@ public class AbstractTest {
 				caps.setCapability("app", iOSUrl);
 				url = new URL(pros.getProperty("appiumURL"));
 
-				driver = new IOSDriver(url, caps);
+				setDriver(new IOSDriver(url, caps));
 				break;
 			default:
 				throw new Exception("Invalid platform :" + platformName);
@@ -63,11 +67,20 @@ public class AbstractTest {
 			e.printStackTrace();
 			throw e;
 		}
-		return driver;
+		return getDriver();
 
 	}
 
-	public void afterClass() {
-		driver.quit();
+	protected void removeDriver() {
+		getDriver().quit();
+		threadLocalDriver.remove();
+	}
+
+	public static AppiumDriver getDriver() {
+		return threadLocalDriver.get();
+	}
+
+	private void setDriver(AppiumDriver driver) {
+		threadLocalDriver.set(driver);
 	}
 }

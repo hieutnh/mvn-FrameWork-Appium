@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]">
   <test thread-count="5" name="Test(failed)">
-    <parameter name="emulator" value="true"/>
+    <parameter name="emulator" value="false"/>
     <parameter name="platformVersion" value="11.0"/>
     <parameter name="platformName" value="Android"/>
     <parameter name="udid" value="emulator-5554"/>

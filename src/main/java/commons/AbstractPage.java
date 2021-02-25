@@ -22,63 +22,61 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
-import pageUI.AbstractPageUI;
+import pageUIAndroid.AbstractPageUI;
 
 public class AbstractPage {
 
-	public void openPageUrl(AppiumDriver driver, String url) {
+	public void openPageUrl(WebDriver driver, String url) {
 		driver.get(url);
 
 	}
 
-	public String getCurrentPage(AppiumDriver driver) {
+	public String getCurrentPage(WebDriver driver) {
 		return driver.getCurrentUrl();
 	}
 
-	public String getCurrentPageTitle(AppiumDriver driver) {
+	public String getCurrentPageTitle(WebDriver driver) {
 		return driver.getTitle();
 	}
 
-	public String getCurrentPageSource(AppiumDriver driver) {
+	public String getCurrentPageSource(WebDriver driver) {
 		return driver.getPageSource();
 	}
 
-	public void backToPage(AppiumDriver driver) {
+	public void backToPage(WebDriver driver) {
 		driver.navigate().back();
 	}
 
-	public void forwardToPage(AppiumDriver driver) {
+	public void forwardToPage(WebDriver driver) {
 		driver.navigate().forward();
 	}
 
-	public void refreshCurrentPage(AppiumDriver driver) {
+	public void refreshCurrentPage(WebDriver driver) {
 		driver.navigate().refresh();
 	}
 
-	public void acceptAlert(AppiumDriver driver) {
+	public void acceptAlert(WebDriver driver) {
 		driver.switchTo().alert().accept();
 	}
 
-	public void cancelAlert(AppiumDriver driver) {
+	public void cancelAlert(WebDriver driver) {
 		driver.switchTo().alert().dismiss();
 	}
 
-	public String getTextlAlert(AppiumDriver driver) {
+	public String getTextlAlert(WebDriver driver) {
 		return driver.switchTo().alert().getText();
 	}
 
-	public void sendTextlAlert(AppiumDriver driver, String value) {
+	public void sendTextlAlert(WebDriver driver, String value) {
 		driver.switchTo().alert().sendKeys(value);
 	}
 
-	public void waitAlertPresence(AppiumDriver driver) {
+	public void waitAlertPresence(WebDriver driver) {
 		explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIMEOUT);
 		explicitWait.until(ExpectedConditions.alertIsPresent());
 	}
 
-	public void switchToWindowByID(AppiumDriver driver, String parentID) {
+	public void switchToWindowByID(WebDriver driver, String parentID) {
 		Set<String> allWindows = driver.getWindowHandles();
 		for (String runWindow : allWindows) {
 			if (!runWindow.equals(parentID)) {
@@ -88,7 +86,7 @@ public class AbstractPage {
 		}
 	}
 
-	public void switchToWindowByTitle(AppiumDriver driver, String title) {
+	public void switchToWindowByTitle(WebDriver driver, String title) {
 		Set<String> allWindows = driver.getWindowHandles();
 		for (String runWindows : allWindows) {
 			driver.switchTo().window(runWindows);
@@ -99,7 +97,7 @@ public class AbstractPage {
 		}
 	}
 
-	public void closeAllWindowsWithoutParent(AppiumDriver driver, String parentID) {
+	public void closeAllWindowsWithoutParent(WebDriver driver, String parentID) {
 		Set<String> allWindows = driver.getWindowHandles();
 		for (String runWindows : allWindows) {
 			if (!runWindows.equals(parentID)) {
@@ -110,11 +108,11 @@ public class AbstractPage {
 		driver.switchTo().window(parentID);
 	}
 
-	public MobileElement getElement(AppiumDriver driver, String locator) {
-		return (MobileElement) driver.findElement(getByXpath(locator));
+	public WebElement getElement(WebDriver driver, String locator) {
+		return driver.findElement(getByXpath(locator));
 	}
 
-	public List<MobileElement> getElements(AppiumDriver driver, String locator) {
+	public List<WebElement> getElements(WebDriver driver, String locator) {
 		return driver.findElements(getByXpath(locator));
 	}
 
@@ -127,7 +125,7 @@ public class AbstractPage {
 		return locator;
 	}
 
-	public void clickToElement(AppiumDriver driver, String locator) {
+	public void clickToElement(WebDriver driver, String locator) {
 		if (driver.toString().toLowerCase().contains("firefox") || driver.toString().toLowerCase().contains("edge")) {
 			sleepInMiliSecond(500);
 		}
@@ -135,7 +133,7 @@ public class AbstractPage {
 		element.click();
 	}
 
-	public boolean retryingFindClick(AppiumDriver driver, String locator) {
+	public boolean retryingFindClick(WebDriver driver, String locator) {
 		boolean result = false;
 		int attempts = 0;
 		while (attempts < 10) {
@@ -151,7 +149,7 @@ public class AbstractPage {
 		return result;
 	}
 
-	public boolean retryingFindClick(AppiumDriver driver, String locator, String... values) {
+	public boolean retryingFindClick(WebDriver driver, String locator, String... values) {
 		if (driver.toString().toLowerCase().contains("firefox") || driver.toString().toLowerCase().contains("chrome")) {
 			sleepInMiliSecond(500);
 		}
@@ -170,7 +168,7 @@ public class AbstractPage {
 		return result;
 	}
 
-	public MobileElement retryingFindClick2(AppiumDriver driver, String locator, String... values) {
+	public WebElement retryingFindClick2(WebDriver driver, String locator, String... values) {
 		element = null;
 		for (int i = 0; i < 10; i++) {
 			try {
@@ -184,7 +182,7 @@ public class AbstractPage {
 		return element;
 	}
 
-	public void checkDisplayToClick(AppiumDriver driver, String locator) {
+	public void checkDisplayToClick(WebDriver driver, String locator) {
 		if (driver.toString().toLowerCase().contains("firefox") || driver.toString().toLowerCase().contains("edge")) {
 			sleepInMiliSecond(1000);
 		}
@@ -197,7 +195,7 @@ public class AbstractPage {
 
 	}
 
-	public void clickToElement(AppiumDriver driver, String locator, String... values) {
+	public void clickToElement(WebDriver driver, String locator, String... values) {
 		if (driver.toString().toLowerCase().contains("firefox") || driver.toString().toLowerCase().contains("edge")) {
 			sleepInMiliSecond(500);
 		}
@@ -205,7 +203,7 @@ public class AbstractPage {
 		element.click();
 	}
 
-	public void sendkeyToElement(AppiumDriver driver, String locator, String value) {
+	public void sendkeyToElement(WebDriver driver, String locator, String value) {
 		element = getElement(driver, locator);
 		element.clear();
 		if (driver.toString().toLowerCase().contains("chrome") || driver.toString().toLowerCase().contains("edge")) {
@@ -214,94 +212,95 @@ public class AbstractPage {
 		element.sendKeys(value);
 	}
 
-	public void sendkeyToElementClear(AppiumDriver driver, String locator) {
+	public void sendkeyToElementClear(WebDriver driver, String locator) {
 		element = getElement(driver, locator);
 		element.clear();
 	}
 
-	public void sendkeyToElement(AppiumDriver driver, String locator, String value, String... values) {
+	public void sendkeyToElement(WebDriver driver, String locator, String value, String... values) {
 		element = getElement(driver, getDynamicLocator(locator, values));
 		element.clear();
-		if (driver.toString().toLowerCase().contains("chrome") || driver.toString().toLowerCase().contains("edge") || driver.toString().toLowerCase().contains("firefox")) {
+		if (driver.toString().toLowerCase().contains("chrome") || driver.toString().toLowerCase().contains("edge")
+				|| driver.toString().toLowerCase().contains("firefox")) {
 			sleepInMiliSecond(500);
 		}
 		element.sendKeys(value);
 	}
 
-	public void sendKeyBoardEnterToElement(AppiumDriver driver, String locator, Keys value) {
+	public void sendKeyBoardEnterToElement(WebDriver driver, String locator, Keys value) {
 		element = getElement(driver, locator);
-		if (driver.toString().toLowerCase().contains("chrome") || driver.toString().toLowerCase().contains("edge") || driver.toString().toLowerCase().contains("firefox")) {
+		if (driver.toString().toLowerCase().contains("chrome") || driver.toString().toLowerCase().contains("edge")
+				|| driver.toString().toLowerCase().contains("firefox")) {
 			sleepInMiliSecond(500);
 		}
 		element.sendKeys(value);
 	}
 
-	public void sendKeyBoardEnterToElement(AppiumDriver driver, String locator, Keys value, String... values) {
+	public void sendKeyBoardEnterToElement(WebDriver driver, String locator, Keys value, String... values) {
 		element = getElement(driver, getDynamicLocator(locator, values));
-		// if (driver.toString().toLowerCase().contains("chrome") ||
-		// driver.toString().toLowerCase().contains("edge") ||
-		// driver.toString().toLowerCase().contains("firefox")) {
-		// sleepInMiliSecond(500);
-		// }
+//		if (driver.toString().toLowerCase().contains("chrome") || driver.toString().toLowerCase().contains("edge") || driver.toString().toLowerCase().contains("firefox")) {
+//			sleepInMiliSecond(500);
+//		}
 		element.sendKeys(value);
 	}
 
-	public void selectItemInDropdown(AppiumDriver driver, String locator, String itemValue) {
+	public void selectItemInDropdown(WebDriver driver, String locator, String itemValue) {
 		element = getElement(driver, locator);
 		select = new Select(element);
 		select.selectByVisibleText(itemValue);
 	}
 
-	public void selectItemInDropdown(AppiumDriver driver, String locator, String itemValue, String... values) {
+	public void selectItemInDropdown(WebDriver driver, String locator, String itemValue, String... values) {
 		element = getElement(driver, getDynamicLocator(locator, values));
 		select = new Select(element);
 		select.selectByVisibleText(itemValue);
 	}
 
-	public void selectItemByIndexInDropdown(AppiumDriver driver, String locator, int itemValue) {
+	public void selectItemByIndexInDropdown(WebDriver driver, String locator, int itemValue) {
 		element = getElement(driver, locator);
 		select = new Select(element);
 		select.selectByIndex(itemValue);
 	}
 
-	public void selectItemByIndexInDropdown(AppiumDriver driver, String locator, int itemValue, String... values) {
+	public void selectItemByIndexInDropdown(WebDriver driver, String locator, int itemValue, String... values) {
 		element = getElement(driver, getDynamicLocator(locator, values));
 		select = new Select(element);
 		select.selectByIndex(itemValue);
 	}
 
-	public int getAllElementInLocator(AppiumDriver driver, String locator) {
+	public int getAllElementInLocator(WebDriver driver, String locator) {
 		elements = getElements(driver, locator);
 		select = new Select(element);
 		return select.getOptions().size();
 	}
 
-	public String getSelectedItemInDropdown(AppiumDriver driver, String locator) {
+	public String getSelectedItemInDropdown(WebDriver driver, String locator) {
 		element = getElement(driver, locator);
 		select = new Select(element);
 		return select.getFirstSelectedOption().getText();
 	}
 
-	public String getSelectedItemInDropdown(AppiumDriver driver, String locator, String... values) {
+	public String getSelectedItemInDropdown(WebDriver driver, String locator, String... values) {
 		element = getElement(driver, getDynamicLocator(locator, values));
 		select = new Select(element);
 		return select.getFirstSelectedOption().getText();
 	}
 
-	public boolean isMultiple(AppiumDriver driver, String locator) {
+	public boolean isMultiple(WebDriver driver, String locator) {
 		element = getElement(driver, locator);
 		select = new Select(element);
 		return select.isMultiple();
 	}
 
-	public void selectItemInCustomDropdown(AppiumDriver driver, String parentLocator, String childItemLocator, String expectedItem) {
+	public void selectItemInCustomDropdown(WebDriver driver, String parentLocator, String childItemLocator,
+			String expectedItem) {
 		element = getElement(driver, parentLocator);
 		element.click();
 		sleepInSecond(5);
 		explicitWait = new WebDriverWait(driver, 20);
 		explicitWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(getByXpath(childItemLocator)));
 		elements = getElements(driver, childItemLocator);
-		for (MobileElement item : elements) {
+		for (WebElement item : elements) {
 			if (item.getText().equals(expectedItem)) {
 				jsExecutor = (JavascriptExecutor) driver;
 				jsExecutor.executeScript("arguments[0].scrollIntoView(true);", item);
@@ -313,11 +312,11 @@ public class AbstractPage {
 	}
 
 	// Get all items in a column
-	public void getAllItemInColumn(AppiumDriver driver, String locatorRow, String locatorColumn, String locatorRandC) {
-		List<MobileElement> numerRows = getElements(driver, locatorRow);
+	public void getAllItemInColumn(WebDriver driver, String locatorRow, String locatorColumn, String locatorRandC) {
+		List<WebElement> numerRows = getElements(driver, locatorRow);
 		int rowSize = numerRows.size();
 		System.out.println("row is" + rowSize);
-		List<MobileElement> numberColumn = getElements(driver, locatorColumn);
+		List<WebElement> numberColumn = getElements(driver, locatorColumn);
 		int columnSize = numberColumn.size();
 		System.out.println("column is" + columnSize);
 		for (int i = 1; i <= rowSize; i++) {
@@ -341,75 +340,85 @@ public class AbstractPage {
 		}
 	}
 
-	public String getElementAttribute(AppiumDriver driver, String locator, String attributeName) {
+	public String getElementAttribute(WebDriver driver, String locator, String attributeName) {
 		element = getElement(driver, locator);
 		return element.getAttribute(attributeName);
 	}
+	
+	public String getElementAttributeAndorid(WebDriver driver, String locator) {
+		element = getElement(driver, locator);
+		return element.getAttribute("text");
+	}
+	
+	public String getElementAttributeiOS(WebDriver driver, String locator) {
+		element = getElement(driver, locator);
+		return element.getAttribute("label");
+	}
 
-	public boolean getElementAttribute(AppiumDriver driver, String locator, String attributeName, String... values) {
+	public boolean getElementAttribute(WebDriver driver, String locator, String attributeName, String... values) {
 		element = getElement(driver, getDynamicLocator(locator, values));
 		return element.getAttribute(attributeName) != null;
 	}
 
-	public String getElementText(AppiumDriver driver, String locator) {
+	public String getElementText(WebDriver driver, String locator) {
 		element = getElement(driver, locator);
 		return element.getText();
 	}
 
-	public String getElementText(AppiumDriver driver, String locator, String... values) {
+	public String getElementText(WebDriver driver, String locator, String... values) {
 		element = getElement(driver, getDynamicLocator(locator, values));
 		return element.getText();
 	}
 
-	public int countElementSize(AppiumDriver driver, String locator) {
+	public int countElementSize(WebDriver driver, String locator) {
 		return getElements(driver, locator).size();
 	}
 
-	public int countElementSize(AppiumDriver driver, String locator, String... values) {
+	public int countElementSize(WebDriver driver, String locator, String... values) {
 		return getElements(driver, getDynamicLocator(locator, values)).size();
 	}
 
-	public boolean verifyCheckbox(AppiumDriver driver, String locator) {
+	public boolean verifyCheckbox(WebDriver driver, String locator) {
 		element = getElement(driver, locator);
 		return element.isSelected();
 	}
 
-	public void checkToCheckbox(AppiumDriver driver, String locator) {
+	public void checkToCheckbox(WebDriver driver, String locator) {
 		element = getElement(driver, locator);
 		if (!element.isSelected()) {
 			element.click();
 		}
 	}
 
-	public void checkToCheckbox(AppiumDriver driver, String locator, String... values) {
+	public void checkToCheckbox(WebDriver driver, String locator, String... values) {
 		element = getElement(driver, getDynamicLocator(locator, values));
 		if (!element.isSelected()) {
 			element.click();
 		}
 	}
 
-	public void uncheckToCheckbox(AppiumDriver driver, String locator) {
+	public void uncheckToCheckbox(WebDriver driver, String locator) {
 		element = getElement(driver, locator);
 		if (element.isSelected()) {
 			element.click();
 		}
 	}
 
-	public boolean isElementDisplayed(AppiumDriver driver, String locator) {
+	public boolean isElementDisplayed(WebDriver driver, String locator) {
 		element = getElement(driver, locator);
 		return element.isDisplayed();
 	}
 
-	public boolean isElementDisplayed(AppiumDriver driver, String locator, String... values) {
+	public boolean isElementDisplayed(WebDriver driver, String locator, String... values) {
 		element = getElement(driver, getDynamicLocator(locator, values));
 		return element.isDisplayed();
 	}
 
-	public void overrideGlobalTimeout(AppiumDriver driver, long timeInSecond) {
+	public void overrideGlobalTimeout(WebDriver driver, long timeInSecond) {
 		driver.manage().timeouts().implicitlyWait(timeInSecond, TimeUnit.SECONDS);
 	}
 
-	public boolean isElementUndisplayed(AppiumDriver driver, String locator) {
+	public boolean isElementUndisplayed(WebDriver driver, String locator) {
 		overrideGlobalTimeout(driver, GlobalConstants.SHORT_TIMEOUT);
 		elements = getElements(driver, locator);
 		overrideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
@@ -426,7 +435,7 @@ public class AbstractPage {
 
 	}
 
-	public boolean isElementUndisplayed(AppiumDriver driver, String locator, String... values) {
+	public boolean isElementUndisplayed(WebDriver driver, String locator, String... values) {
 		overrideGlobalTimeout(driver, GlobalConstants.SHORT_TIMEOUT);
 		elements = getElements(driver, getDynamicLocator(locator, values));
 		overrideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
@@ -443,77 +452,77 @@ public class AbstractPage {
 
 	}
 
-	public boolean isElementEnabled(AppiumDriver driver, String locator) {
+	public boolean isElementEnabled(WebDriver driver, String locator) {
 		element = getElement(driver, locator);
 		return element.isEnabled();
 	}
 
-	public boolean isElementEnabled(AppiumDriver driver, String locator, String... values) {
+	public boolean isElementEnabled(WebDriver driver, String locator, String... values) {
 		elements = getElements(driver, getDynamicLocator(locator, values));
 		return element.isEnabled();
 	}
 
-	public boolean isElementDisabled(AppiumDriver driver, String locator) {
+	public boolean isElementDisabled(WebDriver driver, String locator) {
 		element = getElement(driver, locator);
 		return !element.isEnabled();
 	}
 
-	public boolean isElementDisabled(AppiumDriver driver, String locator, String... values) {
+	public boolean isElementDisabled(WebDriver driver, String locator, String... values) {
 		elements = getElements(driver, getDynamicLocator(locator, values));
 		return !element.isEnabled();
 	}
 
-	public boolean isElementSelected(AppiumDriver driver, String locator) {
+	public boolean isElementSelected(WebDriver driver, String locator) {
 		element = getElement(driver, locator);
 		return element.isSelected();
 	}
 
-	public void switchToFrame(AppiumDriver driver, String locator) {
+	public void switchToFrame(WebDriver driver, String locator) {
 		element = getElement(driver, locator);
 		driver.switchTo().frame(element);
 	}
 
-	public void switchToDefaultContent(AppiumDriver driver) {
+	public void switchToDefaultContent(WebDriver driver) {
 		driver.switchTo().defaultContent();
 	}
 
-	public void doubleClickToElement(AppiumDriver driver, String locator) {
+	public void doubleClickToElement(WebDriver driver, String locator) {
 		action = new Actions(driver);
 		action.doubleClick(getElement(driver, locator)).perform();
 
 	}
 
-	public void rightClickToElement(AppiumDriver driver, String locator) {
+	public void rightClickToElement(WebDriver driver, String locator) {
 		action = new Actions(driver);
 		action.contextClick(getElement(driver, locator)).perform();
 
 	}
 
-	public void hoverMouseToElement(AppiumDriver driver, String locator) {
+	public void hoverMouseToElement(WebDriver driver, String locator) {
 		action = new Actions(driver);
 		action.moveToElement(getElement(driver, locator)).perform();
 
 	}
 
-	public void clickAndHoverToElement(AppiumDriver driver, String locator) {
+	public void clickAndHoverToElement(WebDriver driver, String locator) {
 		action = new Actions(driver);
 		action.clickAndHold(getElement(driver, locator)).perform();
 
 	}
 
-	public void dragAndDropElement(AppiumDriver driver, String sourceLocator, String targetLocator) {
+	public void dragAndDropElement(WebDriver driver, String sourceLocator, String targetLocator) {
 		action = new Actions(driver);
 		action.dragAndDrop(getElement(driver, sourceLocator), getElement(driver, targetLocator)).perform();
 
 	}
 
-	public void sendKeyboardToElement(AppiumDriver driver, Keys key, String locator) {
+	public void sendKeyboardToElement(WebDriver driver, Keys key, String locator) {
 		action = new Actions(driver);
 		action.sendKeys(getElement(driver, locator), key).perform();
 
 	}
 
-	public void hoverToClickElement(AppiumDriver driver, String locator, String... values) {
+	public void hoverToClickElement(WebDriver driver, String locator, String... values) {
 		element = getElement(driver, getDynamicLocator(locator, values));
 		action = new Actions(driver);
 		action.moveToElement(element).perform();
@@ -521,7 +530,7 @@ public class AbstractPage {
 		action.click().perform();
 	}
 
-	public void sendKeyboardToClearElement(AppiumDriver driver, String locator, String... values) {
+	public void sendKeyboardToClearElement(WebDriver driver, String locator, String... values) {
 		element = getElement(driver, getDynamicLocator(locator, values));
 		action = new Actions(driver);
 		element.sendKeys(Keys.chord(Keys.CONTROL, "a"));
@@ -529,62 +538,65 @@ public class AbstractPage {
 
 	}
 
-	public Object executeForBrowser(AppiumDriver driver, String javaSript) {
+	public Object executeForBrowser(WebDriver driver, String javaSript) {
 		jsExecutor = (JavascriptExecutor) driver;
 		return jsExecutor.executeScript(javaSript);
 	}
 
-	public boolean verifyTextInInnerText(AppiumDriver driver, String textExpected) {
+	public boolean verifyTextInInnerText(WebDriver driver, String textExpected) {
 		jsExecutor = (JavascriptExecutor) driver;
-		String textActual = (String) jsExecutor.executeScript("return document.documentElement.innerText.match('" + textExpected + "')[0]");
+		String textActual = (String) jsExecutor
+				.executeScript("return document.documentElement.innerText.match('" + textExpected + "')[0]");
 		return textActual.equals(textExpected);
 	}
 
-	public void scrollToBottomPage(AppiumDriver driver) {
+	public void scrollToBottomPage(WebDriver driver) {
 		jsExecutor = (JavascriptExecutor) driver;
 		jsExecutor.executeScript("window.scrollBy(0,document.body.scrollHeight)");
 	}
 
-	public void navigateToUrlByJS(AppiumDriver driver, String url) {
+	public void navigateToUrlByJS(WebDriver driver, String url) {
 		jsExecutor = (JavascriptExecutor) driver;
 		jsExecutor.executeScript("window.location = '" + url + "'");
 	}
 
-	public void highlightElement(AppiumDriver driver, String locator) {
+	public void highlightElement(WebDriver driver, String locator) {
 		jsExecutor = (JavascriptExecutor) driver;
 		element = getElement(driver, locator);
 		String originalStyle = element.getAttribute("style");
-		jsExecutor.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style", "border: 2px solid red; border-style: dashed;");
+		jsExecutor.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",
+				"border: 2px solid red; border-style: dashed;");
 		sleepInSecond(1);
-		jsExecutor.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style", originalStyle);
+		jsExecutor.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",
+				originalStyle);
 
 	}
 
-	public void clickToElementByJS(AppiumDriver driver, String locator) {
+	public void clickToElementByJS(WebDriver driver, String locator) {
 		jsExecutor = (JavascriptExecutor) driver;
 		element = getElement(driver, locator);
 		jsExecutor.executeScript("arguments[0].click();", element);
 	}
 
-	public void clickToElementByJS(AppiumDriver driver, String locator, String... values) {
+	public void clickToElementByJS(WebDriver driver, String locator, String... values) {
 		jsExecutor = (JavascriptExecutor) driver;
 		element = getElement(driver, getDynamicLocator(locator, values));
 		jsExecutor.executeScript("arguments[0].click();", element);
 	}
 
-	public void scrollToElement(AppiumDriver driver, String locator) {
+	public void scrollToElement(WebDriver driver, String locator) {
 		jsExecutor = (JavascriptExecutor) driver;
 		element = getElement(driver, locator);
 		jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 
-	public void scrollToElement(AppiumDriver driver, String locator, String... values) {
+	public void scrollToElement(WebDriver driver, String locator, String... values) {
 		jsExecutor = (JavascriptExecutor) driver;
 		element = getElement(driver, getDynamicLocator(locator, values));
 		jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 
-	public void scrollToLoadMore(AppiumDriver driver) {
+	public void scrollToLoadMore(WebDriver driver) {
 		try {
 			long lastHeight = (long) ((JavascriptExecutor) driver).executeScript("return document.body.scrollHeight");
 
@@ -592,7 +604,8 @@ public class AbstractPage {
 				((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight);");
 				Thread.sleep(1000);
 
-				long newHeight = (long) ((JavascriptExecutor) driver).executeScript("return document.body.scrollHeight");
+				long newHeight = (long) ((JavascriptExecutor) driver)
+						.executeScript("return document.body.scrollHeight");
 				if (newHeight == lastHeight) {
 					break;
 				}
@@ -621,14 +634,15 @@ public class AbstractPage {
 	}
 
 	public boolean isUnix() {
-		return (osName.toLowerCase().indexOf("nix") >= 0 || osName.toLowerCase().indexOf("nux") >= 0 || osName.toLowerCase().indexOf("aix") > 0);
+		return (osName.toLowerCase().indexOf("nix") >= 0 || osName.toLowerCase().indexOf("nux") >= 0
+				|| osName.toLowerCase().indexOf("aix") > 0);
 	}
 
 	public boolean isSolaris() {
 		return (osName.toLowerCase().indexOf("sunos") >= 0);
 	}
 
-	public void uploadMultipleFiles(AppiumDriver driver, String... fileNames) {
+	public void uploadMultipleFiles(WebDriver driver, String... fileNames) {
 		String filePath = System.getProperty("user.dir") + getDirectorySlash("UploadFiles");
 
 		String fullFileName = "";
@@ -640,47 +654,48 @@ public class AbstractPage {
 
 	}
 
-	public void sendkeyToElementByJS(AppiumDriver driver, String locator, String value) {
+	public void sendkeyToElementByJS(WebDriver driver, String locator, String value) {
 		jsExecutor = (JavascriptExecutor) driver;
 		element = getElement(driver, locator);
 		jsExecutor.executeScript("arguments[0].setAttribute('value', '" + value + "')", element);
 	}
 
-	public void removeAttributeInDOM(AppiumDriver driver, String locator, String attributeRemove) {
+	public void removeAttributeInDOM(WebDriver driver, String locator, String attributeRemove) {
 		jsExecutor = (JavascriptExecutor) driver;
 		element = getElement(driver, locator);
 		jsExecutor.executeScript("arguments[0].removeAttribute('" + attributeRemove + "');", element);
 	}
 
-	public void removeAttributeInDOM(AppiumDriver driver, String locator, String attributeRemove, String... values) {
+	public void removeAttributeInDOM(WebDriver driver, String locator, String attributeRemove, String... values) {
 		jsExecutor = (JavascriptExecutor) driver;
 		element = getElement(driver, getDynamicLocator(locator, values));
 		jsExecutor.executeScript("arguments[0].removeAttribute('" + attributeRemove + "');", element);
 	}
 
-	public boolean verifyImage(AppiumDriver driver, String locator) {
+	public boolean verifyImage(WebDriver driver, String locator) {
 		element = getElement(driver, locator);
-		boolean status = (Boolean) ((JavascriptExecutor) driver).executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", element);
+		boolean status = (Boolean) ((JavascriptExecutor) driver).executeScript(
+				"return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0",
+				element);
 		if (status) {
 			return true;
 		}
 		return false;
 	}
 
-	public void getToolTipMessage(AppiumDriver driver, String locator) {
+	public void getToolTipMessage(WebDriver driver, String locator) {
 		jsExecutor = (JavascriptExecutor) driver;
 		element = getElement(driver, locator);
 		jsExecutor.executeScript("return arguments[0].validationMessage;", element);
 	}
 
-	public boolean waitToJQueryAndJSLoadedSuccess(AppiumDriver driver) {
+	public boolean waitToJQueryAndJSLoadedSuccess(WebDriver driver) {
 		explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIMEOUT);
 		jsExecutor = (JavascriptExecutor) driver;
 
 		ExpectedCondition<Boolean> jQueryLoad = new ExpectedCondition<Boolean>() {
-
 			@Override
-			public Boolean apply(WebDriver input) {
+			public Boolean apply(WebDriver driver) {
 				try {
 					return ((Long) jsExecutor.executeScript("return jQuery.active") == 0);
 				} catch (Exception e) {
@@ -699,64 +714,61 @@ public class AbstractPage {
 		return explicitWait.until(jQueryLoad) && explicitWait.until(jsLoad);
 	}
 
-	public void waitToElementPresence(AppiumDriver driver, String locator) {
+	public void waitToElementPresence(WebDriver driver, String locator) {
 		explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIMEOUT);
 		explicitWait.until(ExpectedConditions.presenceOfElementLocated(getByXpath(locator)));
 	}
 
-	public void waitToElementStaleness(AppiumDriver driver, String locator) {
+	public void waitToElementStaleness(WebDriver driver, String locator) {
 		explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIMEOUT);
 		explicitWait.until(ExpectedConditions.stalenessOf(getElement(driver, locator)));
 	}
 
-	public void waitToElementVisible(AppiumDriver driver, String locator) {
+	public void waitToElementVisible(WebDriver driver, String locator) {
 		explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIMEOUT);
 		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(getByXpath(locator)));
 	}
 
-	public void waitToElementVisible(AppiumDriver driver,MobileElement e) {
-		explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIMEOUT);
-		explicitWait.until(ExpectedConditions.visibilityOf(e));
-	}
-
-	public void waitToElementsVisible(AppiumDriver driver, String locator) {
+	public void waitToElementsVisible(WebDriver driver, String locator) {
 		explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIMEOUT);
 		explicitWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(getByXpath(locator)));
 	}
 
-	public void waitToElementVisible(AppiumDriver driver, String locator, String... values) {
+	public void waitToElementVisible(WebDriver driver, String locator, String... values) {
 		explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIMEOUT);
-		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(getByXpath(getDynamicLocator(locator, values))));
+		explicitWait
+				.until(ExpectedConditions.visibilityOfElementLocated(getByXpath(getDynamicLocator(locator, values))));
 	}
 
-	public void waitToElementInvisible(AppiumDriver driver, String locator) {
+	public void waitToElementInvisible(WebDriver driver, String locator) {
 		explicitWait = new WebDriverWait(driver, GlobalConstants.SHORT_TIMEOUT);
 		overrideGlobalTimeout(driver, GlobalConstants.SHORT_TIMEOUT);
 		explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(getByXpath(locator)));
 		overrideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
 	}
 
-	public void waitToElementInvisible(AppiumDriver driver, String locator, String... values) {
+	public void waitToElementInvisible(WebDriver driver, String locator, String... values) {
 		explicitWait = new WebDriverWait(driver, GlobalConstants.SHORT_TIMEOUT);
 		overrideGlobalTimeout(driver, GlobalConstants.SHORT_TIMEOUT);
-		explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(getByXpath(getDynamicLocator(locator, values))));
+		explicitWait
+				.until(ExpectedConditions.invisibilityOfElementLocated(getByXpath(getDynamicLocator(locator, values))));
 		overrideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
 	}
 
-	public void waitToElementClickAble(AppiumDriver driver, String locator) {
+	public void waitToElementClickAble(WebDriver driver, String locator) {
 		explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIMEOUT);
 		explicitWait.until(ExpectedConditions.elementToBeClickable(getByXpath(locator)));
 	}
 
-	public void waitToElementClickAble(AppiumDriver driver, String locator, String... values) {
+	public void waitToElementClickAble(WebDriver driver, String locator, String... values) {
 		explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIMEOUT);
 		explicitWait.until(ExpectedConditions.elementToBeClickable(getByXpath(getDynamicLocator(locator, values))));
 	}
 
-	public boolean isDataSortedAscending(AppiumDriver driver, String locator) {
+	public boolean isDataSortedAscending(WebDriver driver, String locator) {
 		ArrayList<String> arrayList = new ArrayList<>();
-		List<MobileElement> elementList = getElements(driver, locator);
-		for (MobileElement element : elementList) {
+		List<WebElement> elementList = getElements(driver, locator);
+		for (WebElement element : elementList) {
 			arrayList.add(element.getText());
 		}
 
@@ -776,10 +788,10 @@ public class AbstractPage {
 		return sortedList.equals(arrayList);
 	}
 
-	public boolean isPriceSortAscending(AppiumDriver driver, String locator) {
+	public boolean isPriceSortAscending(WebDriver driver, String locator) {
 		ArrayList<Float> arrayList = new ArrayList<Float>();
-		List<MobileElement> elementList = getElements(driver, locator);
-		for (MobileElement element : elementList) {
+		List<WebElement> elementList = getElements(driver, locator);
+		for (WebElement element : elementList) {
 			arrayList.add(Float.parseFloat(element.getText().replace("$", "").replace(",", "").trim()));
 		}
 
@@ -799,10 +811,10 @@ public class AbstractPage {
 		return sortedList.equals(arrayList);
 	}
 
-	public boolean isDateSortAscending(AppiumDriver driver, String locator) throws ParseException {
+	public boolean isDateSortAscending(WebDriver driver, String locator) throws ParseException {
 		ArrayList<Date> arrayList = new ArrayList<Date>();
-		List<MobileElement> elementList = getElements(driver, locator);
-		for (MobileElement element : elementList) {
+		List<WebElement> elementList = getElements(driver, locator);
+		for (WebElement element : elementList) {
 			SimpleDateFormat date = new SimpleDateFormat("dd/mm/yyyy");
 			arrayList.add(date.parse(element.getText()));
 		}
@@ -823,10 +835,10 @@ public class AbstractPage {
 		return sortedList.equals(arrayList);
 	}
 
-	public boolean isDataSortedDescending(AppiumDriver driver, String locator) {
+	public boolean isDataSortedDescending(WebDriver driver, String locator) {
 		ArrayList<String> arrayList = new ArrayList<>();
-		List<MobileElement> elementList = getElements(driver, locator);
-		for (MobileElement element : elementList) {
+		List<WebElement> elementList = getElements(driver, locator);
+		for (WebElement element : elementList) {
 			arrayList.add(element.getText());
 		}
 		System.out.println("------------------Data on UI ------------------");
@@ -853,10 +865,10 @@ public class AbstractPage {
 
 	}
 
-	public boolean isPriceSortedDescending(AppiumDriver driver, String locator) {
+	public boolean isPriceSortedDescending(WebDriver driver, String locator) {
 		ArrayList<Float> arrayList = new ArrayList<Float>();
-		List<MobileElement> elementList = getElements(driver, locator);
-		for (MobileElement element : elementList) {
+		List<WebElement> elementList = getElements(driver, locator);
+		for (WebElement element : elementList) {
 			arrayList.add(Float.parseFloat(element.getText().replace("$", "").replace(",", "").trim()));
 		}
 
@@ -884,10 +896,10 @@ public class AbstractPage {
 
 	}
 
-	public boolean isDateSortDescending(AppiumDriver driver, String locator) throws ParseException {
+	public boolean isDateSortDescending(WebDriver driver, String locator) throws ParseException {
 		ArrayList<Date> arrayList = new ArrayList<Date>();
-		List<MobileElement> elementList = getElements(driver, locator);
-		for (MobileElement element : elementList) {
+		List<WebElement> elementList = getElements(driver, locator);
+		for (WebElement element : elementList) {
 			SimpleDateFormat date = new SimpleDateFormat("dd/mm/yyyy");
 			arrayList.add(date.parse(element.getText()));
 		}
@@ -916,15 +928,13 @@ public class AbstractPage {
 	}
 
 	// Dynamic link
-	// public void inputTextByPlatUndisplayed(driver,
-	// AbstractPageUI.DYNAMIC_TEXTBOX_TAM_TRU_BY_PLACEHOLDER, values1, values2);
 
-	private FluentWait<MobileElement> fluentelement;
+	private FluentWait<WebElement> fluentelement;
 	private WebDriverWait explicitWait;
 	private JavascriptExecutor jsExecutor;
-	private MobileElement element;
+	private WebElement element;
 	private Actions action;
-	private List<MobileElement> elements;
+	private List<WebElement> elements;
 	private Select select;
 	private String osName = System.getProperty("os.name");
 
