@@ -3,24 +3,21 @@ package commons;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
 
 public class AbstractTest {
-	protected static ThreadLocal<AppiumDriver> threadLocalDriver = new ThreadLocal<AppiumDriver>();
-	protected AppiumDriver driver;
+	protected static ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<WebDriver>();
+	protected WebDriver driver;
 	protected Properties pros;
 	InputStream inputStream;
 	String sourceFolder = System.getProperty("user.dir");
 
-	public AppiumDriver getBrowserDriver(String emulator, String platformName, String platformVersion, String udid, String deviceName) throws Exception {
+	public WebDriver getBrowserDriver(String emulator, String platformName, String platformVersion, String udid, String deviceName) throws Exception {
 		URL url;
 		try {
 			pros = new Properties();
@@ -76,11 +73,11 @@ public class AbstractTest {
 		threadLocalDriver.remove();
 	}
 
-	public static AppiumDriver getDriver() {
+	public static WebDriver getDriver() {
 		return threadLocalDriver.get();
 	}
 
-	private void setDriver(AppiumDriver driver) {
+	private void setDriver(WebDriver driver) {
 		threadLocalDriver.set(driver);
 	}
 }

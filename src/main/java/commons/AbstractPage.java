@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -16,6 +17,7 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -220,8 +222,7 @@ public class AbstractPage {
 	public void sendkeyToElement(WebDriver driver, String locator, String value, String... values) {
 		element = getElement(driver, getDynamicLocator(locator, values));
 		element.clear();
-		if (driver.toString().toLowerCase().contains("chrome") || driver.toString().toLowerCase().contains("edge")
-				|| driver.toString().toLowerCase().contains("firefox")) {
+		if (driver.toString().toLowerCase().contains("chrome") || driver.toString().toLowerCase().contains("edge") || driver.toString().toLowerCase().contains("firefox")) {
 			sleepInMiliSecond(500);
 		}
 		element.sendKeys(value);
@@ -229,8 +230,7 @@ public class AbstractPage {
 
 	public void sendKeyBoardEnterToElement(WebDriver driver, String locator, Keys value) {
 		element = getElement(driver, locator);
-		if (driver.toString().toLowerCase().contains("chrome") || driver.toString().toLowerCase().contains("edge")
-				|| driver.toString().toLowerCase().contains("firefox")) {
+		if (driver.toString().toLowerCase().contains("chrome") || driver.toString().toLowerCase().contains("edge") || driver.toString().toLowerCase().contains("firefox")) {
 			sleepInMiliSecond(500);
 		}
 		element.sendKeys(value);
@@ -292,8 +292,7 @@ public class AbstractPage {
 		return select.isMultiple();
 	}
 
-	public void selectItemInCustomDropdown(WebDriver driver, String parentLocator, String childItemLocator,
-			String expectedItem) {
+	public void selectItemInCustomDropdown(WebDriver driver, String parentLocator, String childItemLocator, String expectedItem) {
 		element = getElement(driver, parentLocator);
 		element.click();
 		sleepInSecond(5);
@@ -344,12 +343,12 @@ public class AbstractPage {
 		element = getElement(driver, locator);
 		return element.getAttribute(attributeName);
 	}
-	
+
 	public String getElementAttributeAndorid(WebDriver driver, String locator) {
 		element = getElement(driver, locator);
 		return element.getAttribute("text");
 	}
-	
+
 	public String getElementAttributeiOS(WebDriver driver, String locator) {
 		element = getElement(driver, locator);
 		return element.getAttribute("label");
@@ -545,8 +544,7 @@ public class AbstractPage {
 
 	public boolean verifyTextInInnerText(WebDriver driver, String textExpected) {
 		jsExecutor = (JavascriptExecutor) driver;
-		String textActual = (String) jsExecutor
-				.executeScript("return document.documentElement.innerText.match('" + textExpected + "')[0]");
+		String textActual = (String) jsExecutor.executeScript("return document.documentElement.innerText.match('" + textExpected + "')[0]");
 		return textActual.equals(textExpected);
 	}
 
@@ -564,11 +562,9 @@ public class AbstractPage {
 		jsExecutor = (JavascriptExecutor) driver;
 		element = getElement(driver, locator);
 		String originalStyle = element.getAttribute("style");
-		jsExecutor.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",
-				"border: 2px solid red; border-style: dashed;");
+		jsExecutor.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style", "border: 2px solid red; border-style: dashed;");
 		sleepInSecond(1);
-		jsExecutor.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style",
-				originalStyle);
+		jsExecutor.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style", originalStyle);
 
 	}
 
@@ -590,6 +586,17 @@ public class AbstractPage {
 		jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 
+	public void scrollToElementiOS(WebDriver driver, String locator) {
+		jsExecutor = (JavascriptExecutor) driver;
+		RemoteWebElement element = (RemoteWebElement)getElement(driver, locator);
+		String elementID = element.getId();
+		HashMap<String, String> scrollObject = new HashMap<String, String>();
+		scrollObject.put("element", elementID);
+		scrollObject.put("toVisible", "not an empty string");
+		jsExecutor.executeScript("mobile:scroll", scrollObject);
+
+	}
+
 	public void scrollToElement(WebDriver driver, String locator, String... values) {
 		jsExecutor = (JavascriptExecutor) driver;
 		element = getElement(driver, getDynamicLocator(locator, values));
@@ -604,8 +611,7 @@ public class AbstractPage {
 				((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight);");
 				Thread.sleep(1000);
 
-				long newHeight = (long) ((JavascriptExecutor) driver)
-						.executeScript("return document.body.scrollHeight");
+				long newHeight = (long) ((JavascriptExecutor) driver).executeScript("return document.body.scrollHeight");
 				if (newHeight == lastHeight) {
 					break;
 				}
@@ -634,8 +640,7 @@ public class AbstractPage {
 	}
 
 	public boolean isUnix() {
-		return (osName.toLowerCase().indexOf("nix") >= 0 || osName.toLowerCase().indexOf("nux") >= 0
-				|| osName.toLowerCase().indexOf("aix") > 0);
+		return (osName.toLowerCase().indexOf("nix") >= 0 || osName.toLowerCase().indexOf("nux") >= 0 || osName.toLowerCase().indexOf("aix") > 0);
 	}
 
 	public boolean isSolaris() {
@@ -674,9 +679,7 @@ public class AbstractPage {
 
 	public boolean verifyImage(WebDriver driver, String locator) {
 		element = getElement(driver, locator);
-		boolean status = (Boolean) ((JavascriptExecutor) driver).executeScript(
-				"return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0",
-				element);
+		boolean status = (Boolean) ((JavascriptExecutor) driver).executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", element);
 		if (status) {
 			return true;
 		}
@@ -736,8 +739,7 @@ public class AbstractPage {
 
 	public void waitToElementVisible(WebDriver driver, String locator, String... values) {
 		explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIMEOUT);
-		explicitWait
-				.until(ExpectedConditions.visibilityOfElementLocated(getByXpath(getDynamicLocator(locator, values))));
+		explicitWait.until(ExpectedConditions.visibilityOfElementLocated(getByXpath(getDynamicLocator(locator, values))));
 	}
 
 	public void waitToElementInvisible(WebDriver driver, String locator) {
@@ -750,8 +752,7 @@ public class AbstractPage {
 	public void waitToElementInvisible(WebDriver driver, String locator, String... values) {
 		explicitWait = new WebDriverWait(driver, GlobalConstants.SHORT_TIMEOUT);
 		overrideGlobalTimeout(driver, GlobalConstants.SHORT_TIMEOUT);
-		explicitWait
-				.until(ExpectedConditions.invisibilityOfElementLocated(getByXpath(getDynamicLocator(locator, values))));
+		explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(getByXpath(getDynamicLocator(locator, values))));
 		overrideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
 	}
 

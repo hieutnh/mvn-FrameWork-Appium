@@ -1,0 +1,1 @@
+{"uuid":"bf301599-110c-42e0-9061-2c0c00d19c4b","name":"Android.Topic_12_BasicTest","children":["36c44a3c-54a4-4abf-8efb-8a82fdb68a6d"],"befores":[{"name":"BeforeClass","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1614260703816,"stop":1614260715531}],"afters":[],"links":[],"start":1614260703755,"stop":1614260719267}

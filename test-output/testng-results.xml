@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-02-25T18:05:36 ICT" name="Suite" finished-at="2021-02-25T18:07:00 ICT" duration-ms="83514">
+  <suite started-at="2021-02-25T21:41:54 ICT" name="Suite" finished-at="2021-02-25T21:42:15 ICT" duration-ms="21071">
     <groups>
     </groups>
-    <test started-at="2021-02-25T18:05:36 ICT" name="Test" finished-at="2021-02-25T18:07:00 ICT" duration-ms="83514">
-      <class name="Android.Topic_12_BasicTest">
-        <test-method is-config="true" signature="BeforeClass(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Android.Topic_12_BasicTest@46678e49]" started-at="2021-02-25T18:05:36 ICT" name="BeforeClass" finished-at="2021-02-25T18:06:51 ICT" duration-ms="75268" status="PASS">
+    <test started-at="2021-02-25T21:41:54 ICT" name="Test" finished-at="2021-02-25T21:42:15 ICT" duration-ms="21071">
+      <class name="Android.Topic_01_BasicTest">
+        <test-method is-config="true" signature="BeforeClass(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Android.Topic_01_BasicTest@4d74c3ba]" started-at="2021-02-25T21:41:54 ICT" name="BeforeClass" finished-at="2021-02-25T21:42:04 ICT" duration-ms="10050" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[true]]>
+                <![CDATA[false]]>
               </value>
             </param>
             <param index="1">
@@ -26,7 +26,7 @@
             </param>
             <param index="3">
               <value>
-                <![CDATA[emulator-5554]]>
+                <![CDATA[1876ca52]]>
               </value>
             </param>
             <param index="4">
@@ -38,7 +38,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeClass -->
-        <test-method signature="TC_01_invalidUsername(java.lang.String)[pri:0, instance:Android.Topic_12_BasicTest@46678e49]" started-at="2021-02-25T18:06:51 ICT" name="TC_01_invalidUsername" finished-at="2021-02-25T18:06:56 ICT" duration-ms="4293" status="PASS">
+        <test-method signature="TC_01_Login_Successfully(java.lang.String)[pri:0, instance:Android.Topic_01_BasicTest@4d74c3ba]" started-at="2021-02-25T21:42:04 ICT" name="TC_01_Login_Successfully" finished-at="2021-02-25T21:42:10 ICT" duration-ms="6010" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -48,8 +48,12 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_01_invalidUsername -->
-      </class> <!-- Android.Topic_12_BasicTest -->
+        </test-method> <!-- TC_01_Login_Successfully -->
+        <test-method signature="TC_02_Filter()[pri:0, instance:Android.Topic_01_BasicTest@4d74c3ba]" started-at="2021-02-25T21:42:10 ICT" name="TC_02_Filter" finished-at="2021-02-25T21:42:15 ICT" duration-ms="4807" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_02_Filter -->
+      </class> <!-- Android.Topic_01_BasicTest -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

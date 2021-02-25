@@ -1,20 +1,19 @@
 package pageObject;
 
-import org.testng.annotations.Parameters;
+import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
-import io.appium.java_client.AppiumDriver;
 import pageUIAndroid.LoginPageUIAndroid;
 import pageUIiOS.LoginPageUIiOS;
 
 public class loginPageObject extends AbstractPage {
-	AppiumDriver driver;
+	WebDriver driver;
 
-	public loginPageObject(AppiumDriver driver) {
+	public loginPageObject(WebDriver driver) {
 		this.driver = driver;
 	}
 
-	public void clicktoLoginButton(String platformName) {
+	public mainMenuPageObject clicktoLoginButton(String platformName) {
 		if (platformName.equalsIgnoreCase("Android")) {
 			waitToElementClickAble(driver, LoginPageUIAndroid.LOGINBUTTON);
 			clickToElement(driver, LoginPageUIAndroid.LOGINBUTTON);
@@ -22,10 +21,10 @@ public class loginPageObject extends AbstractPage {
 			waitToElementClickAble(driver, LoginPageUIiOS.LOGINBUTTON);
 			clickToElement(driver, LoginPageUIiOS.LOGINBUTTON);
 		}
-
+		return PageGeneratorManager.getMainMenu(driver);
 	}
 
-	public void getAttributeMobile(String platformName ) {
+	public void getAttributeMobile(String platformName) {
 		if (platformName.equalsIgnoreCase("Android")) {
 			waitToElementVisible(driver, LoginPageUIiOS.LOGINBUTTON);
 			getElementAttributeAndorid(driver, LoginPageUIiOS.LOGINBUTTON);
@@ -37,11 +36,16 @@ public class loginPageObject extends AbstractPage {
 
 	public void inputUserName(String platformName, String value) {
 		if (platformName.equalsIgnoreCase("Android")) {
-			waitToElementVisible(driver, LoginPageUIiOS.USERNAME_TEXTBOX);	
-			sendkeyToElement(driver, LoginPageUIiOS.USERNAME_TEXTBOX, value);
+			waitToElementVisible(driver, LoginPageUIAndroid.USERNAME_TEXTBOX);
+			sendkeyToElement(driver, LoginPageUIAndroid.USERNAME_TEXTBOX, value);
 		} else {
-			waitToElementVisible(driver, LoginPageUIiOS.USERNAME_TEXTBOX);	
+			waitToElementVisible(driver, LoginPageUIiOS.USERNAME_TEXTBOX);
 			sendkeyToElement(driver, LoginPageUIiOS.USERNAME_TEXTBOX, value);
 		}
+	}
+
+	public void inputPassword(String value) {
+		waitToElementVisible(driver, LoginPageUIAndroid.PASSWORD_TEXTBOX);
+		sendkeyToElement(driver, LoginPageUIAndroid.PASSWORD_TEXTBOX, value);
 	}
 }
