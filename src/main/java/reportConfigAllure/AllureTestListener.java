@@ -29,28 +29,28 @@ public class AllureTestListener implements ITestListener {
 	
 	@Override
 	public void onStart(ITestContext iTestContext) {
-		System.out.println("I am in onStart method " + iTestContext.getName());
+		System.out.println("Start method " + iTestContext.getName());
 		iTestContext.setAttribute("WebDriver", AbstractTest.getDriver());
 	}
 
 	@Override
 	public void onFinish(ITestContext iTestContext) {
-		System.out.println("I am in onFinish method " + iTestContext.getName());
+		System.out.println("Finish method " + iTestContext.getName());
 	}
 
 	@Override
 	public void onTestStart(ITestResult iTestResult) {
-		System.out.println("I am in onTestStart method " + getTestMethodName(iTestResult) + " start");
+		System.out.println("Test Start method " + getTestMethodName(iTestResult) + " start");
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult iTestResult) {
-		System.out.println("I am in onTestSuccess method " + getTestMethodName(iTestResult) + " succeed");
+		System.out.println("Test Success method " + getTestMethodName(iTestResult) + " succeed");
 	}
 
 	@Override
 	public void onTestFailure(ITestResult iTestResult) {
-		System.out.println("I am in onTestFailure method " + getTestMethodName(iTestResult) + " failed");
+		System.out.println("Test Failure method " + getTestMethodName(iTestResult) + " failed");
 		Object testClass = iTestResult.getInstance();
 		WebDriver driver = AbstractTest.getDriver();
 		// Allure ScreenShot and SaveTestLog
@@ -64,7 +64,7 @@ public class AllureTestListener implements ITestListener {
 	
 	@Override
 	public void onTestSkipped(ITestResult iTestResult) {
-		System.out.println("I am in onTestSkipped method " + getTestMethodName(iTestResult) + " skipped");
+		System.out.println("Test Skipped method " + getTestMethodName(iTestResult) + " skipped");
 	}
 
 	@Override

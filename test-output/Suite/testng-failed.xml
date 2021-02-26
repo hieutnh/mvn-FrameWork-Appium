@@ -2,18 +2,21 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]">
   <test thread-count="5" name="Test(failed)">
-    <parameter name="emulator" value="false"/>
+    <parameter name="emulator" value="true"/>
     <parameter name="platformVersion" value="11.0"/>
     <parameter name="platformName" value="Android"/>
-    <parameter name="udid" value="emulator-5554"/>
+    <parameter name="udid" value="1876ca52"/>
     <parameter name="deviceName" value="Pixel_3"/>
     <classes>
-      <class name="Android.Topic_12_BasicTest">
+      <class name="Android.Topic_02_OpenBrowser">
         <methods>
-          <include name="TC_01_invalidUsername"/>
           <include name="BeforeClass"/>
+          <include name="afterMethod"/>
+          <include name="deleteAllFileInReportNGScreenShot"/>
+          <include name="beforeMethod"/>
+          <include name="TC_01_Login_Successfully" invocation-numbers="0"/>
         </methods>
-      </class> <!-- Android.Topic_12_BasicTest -->
+      </class> <!-- Android.Topic_02_OpenBrowser -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

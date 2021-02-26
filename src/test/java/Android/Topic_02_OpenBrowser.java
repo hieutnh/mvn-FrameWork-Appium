@@ -1,5 +1,6 @@
 package Android;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
@@ -14,7 +15,7 @@ import pageObject.mainMenuPageObject;
 import reportConfigAllure.AllureTestListener;
 
 @Listeners({ AllureTestListener.class })
-public class Topic_01_BasicTest extends AbstractTest {
+public class Topic_02_OpenBrowser extends AbstractTest {
 	WebDriver driver;
 	String sourceFolder = System.getProperty("user.dir");
 
@@ -26,22 +27,14 @@ public class Topic_01_BasicTest extends AbstractTest {
 
 	@Parameters({ "platformName" })
 	@Test
-	public void TC_01_Login_Successfully(String platformName) {
-		loginPage = PageGeneratorManager.getLoginPage(driver);
-		loginPage.inputUserName(platformName, "standard_user");
-		loginPage.inputPassword("secret_sauce");
-		mainMenuPage = loginPage.clicktoLoginButton(platformName);
+	public void TC_01_Login_Successfully(String platformName) throws InterruptedException {
+		mainMenuPage = PageGeneratorManager.getMainMenu(driver);
+		mainMenuPage.sendKeyToUrl("https://eform-dev.acb.com.vn/", Keys.ENTER);
+		Thread.sleep(3000);
+		
 
 	}
 
-	@Test
-	public void TC_02_Filter() {
-		mainMenuPage.clickFilter();
-		mainMenuPage.clickFilterZtoA();
-		mainMenuPage.isNameSortAscending();
-		mainMenuPage.scrollTobottomPageMain("up");
-
-	}
 
 	loginPageObject loginPage;
 	mainMenuPageObject mainMenuPage;

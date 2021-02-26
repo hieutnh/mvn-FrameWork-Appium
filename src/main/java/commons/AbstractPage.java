@@ -2,6 +2,7 @@ package commons;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -11,6 +12,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -24,6 +26,16 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.PerformsTouchActions;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import pageUIAndroid.AbstractPageUI;
 
 public class AbstractPage {
@@ -205,6 +217,11 @@ public class AbstractPage {
 		element.click();
 	}
 
+	
+	public void sendKeyKeyBoardMobile(WebDriver driver) {
+		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+    }
+	
 	public void sendkeyToElement(WebDriver driver, String locator, String value) {
 		element = getElement(driver, locator);
 		element.clear();
@@ -217,6 +234,10 @@ public class AbstractPage {
 	public void sendkeyToElementClear(WebDriver driver, String locator) {
 		element = getElement(driver, locator);
 		element.clear();
+	}
+	
+	public void sendKeyBoardMobile (WebDriver driver) {
+		((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.ENTER));
 	}
 
 	public void sendkeyToElement(WebDriver driver, String locator, String value, String... values) {
@@ -238,9 +259,11 @@ public class AbstractPage {
 
 	public void sendKeyBoardEnterToElement(WebDriver driver, String locator, Keys value, String... values) {
 		element = getElement(driver, getDynamicLocator(locator, values));
-//		if (driver.toString().toLowerCase().contains("chrome") || driver.toString().toLowerCase().contains("edge") || driver.toString().toLowerCase().contains("firefox")) {
-//			sleepInMiliSecond(500);
-//		}
+		// if (driver.toString().toLowerCase().contains("chrome") ||
+		// driver.toString().toLowerCase().contains("edge") ||
+		// driver.toString().toLowerCase().contains("firefox")) {
+		// sleepInMiliSecond(500);
+		// }
 		element.sendKeys(value);
 	}
 
@@ -534,6 +557,12 @@ public class AbstractPage {
 		action = new Actions(driver);
 		element.sendKeys(Keys.chord(Keys.CONTROL, "a"));
 		element.sendKeys(Keys.chord(Keys.BACK_SPACE));
+		
+	}
+	
+	public void sendKeyboardEnter(WebDriver driver, String locator) {
+		element = getElement(driver, locator);
+		element.sendKeys(Keys.chord(Keys.ENTER));
 
 	}
 
@@ -588,13 +617,65 @@ public class AbstractPage {
 
 	public void scrollToElementiOS(WebDriver driver, String locator) {
 		jsExecutor = (JavascriptExecutor) driver;
-		RemoteWebElement element = (RemoteWebElement)getElement(driver, locator);
+		RemoteWebElement element = (RemoteWebElement) getElement(driver, locator);
 		String elementID = element.getId();
 		HashMap<String, String> scrollObject = new HashMap<String, String>();
 		scrollObject.put("element", elementID);
 		scrollObject.put("toVisible", "not an empty string");
 		jsExecutor.executeScript("mobile:scroll", scrollObject);
 
+	}
+
+	public void scrollToElementMobile(WebDriver driver, String direction) {
+		Dimension dim = driver.manage().window().getSize();
+		int x = dim.getWidth() / 2;
+		int startY = 0;
+		int endY = 0;
+
+		switch (direction) {
+		case "up":
+			startY = (int) (dim.getHeight() * 0.8);
+			endY = (int) (dim.getHeight() * 0.2);
+			break;
+		case "down":
+			startY = (int) (dim.getHeight() * 0.2);
+			endY = (int) (dim.getHeight() * 0.8);
+			break;
+		}
+		TouchAction t = new TouchAction((PerformsTouchActions) driver);
+		t.press(PointOption.point(x, startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000))).moveTo(PointOption.point(x, endY)).release().perform();
+	}
+
+	public void scrollToelementMobileAll(WebDriver driver, String locator, String directory) {
+		for (int i = 0; i < 3; i++) {
+			if (isDisplayToScroll(driver, locator)) {
+				break;
+			} else {
+				if (directory.equalsIgnoreCase("up")) {
+					scrollToElementMobile(driver, "up");
+				} else {
+					scrollToElementMobile(driver, "down");
+				}
+			}
+		}
+	}
+
+	public boolean isDisplayToScroll(WebDriver driver, String locator) {
+		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, 1);
+			return wait.until(new ExpectedCondition<Boolean>() {
+				public Boolean apply(WebDriver driver) {
+					element = getElement(driver, locator);
+					if (element.isDisplayed()) {
+						return true;
+					}
+					return false;
+				}
+			});
+		} catch (Exception ex) {
+			return false;
+		}
 	}
 
 	public void scrollToElement(WebDriver driver, String locator, String... values) {

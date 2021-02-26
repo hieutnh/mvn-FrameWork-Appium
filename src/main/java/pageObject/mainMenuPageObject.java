@@ -1,5 +1,6 @@
 package pageObject;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
@@ -28,5 +29,17 @@ public class mainMenuPageObject extends AbstractPage {
 		waitToElementsVisible(driver, MainMenuPageUIAndroid.NAME_SORT);
 		isDataSortedDescending(driver, MainMenuPageUIAndroid.NAME_SORT);
 
+	}
+
+	public void scrollTobottomPageMain(String directory) {
+		// scrollToElementMobile(driver, directory);
+		scrollToelementMobileAll(driver, MainMenuPageUIAndroid.SCROLLFINDBACKPACK, directory);
+	}
+
+	public void sendKeyToUrl(String value, Keys key) {
+		waitToElementVisible(driver, MainMenuPageUIAndroid.Clickurl);
+		clickToElement(driver, MainMenuPageUIAndroid.Clickurl);
+		sendkeyToElement(driver, MainMenuPageUIAndroid.url, value);
+		sendKeyBoardMobile(driver);
 	}
 }

@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-02-25T21:41:54 ICT" name="Suite" finished-at="2021-02-25T21:42:15 ICT" duration-ms="21071">
+  <suite started-at="2021-02-26T18:11:54 ICT" name="Suite" finished-at="2021-02-26T18:12:27 ICT" duration-ms="33327">
     <groups>
     </groups>
-    <test started-at="2021-02-25T21:41:54 ICT" name="Test" finished-at="2021-02-25T21:42:15 ICT" duration-ms="21071">
-      <class name="Android.Topic_01_BasicTest">
-        <test-method is-config="true" signature="BeforeClass(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Android.Topic_01_BasicTest@4d74c3ba]" started-at="2021-02-25T21:41:54 ICT" name="BeforeClass" finished-at="2021-02-25T21:42:04 ICT" duration-ms="10050" status="PASS">
+    <test started-at="2021-02-26T18:11:54 ICT" name="Test" finished-at="2021-02-26T18:12:27 ICT" duration-ms="33327">
+      <class name="Android.Topic_02_OpenBrowser">
+        <test-method is-config="true" signature="deleteAllFileInReportNGScreenShot()[pri:0, instance:Android.Topic_02_OpenBrowser@1a480135]" started-at="2021-02-26T18:11:54 ICT" name="deleteAllFileInReportNGScreenShot" finished-at="2021-02-26T18:11:54 ICT" duration-ms="29" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteAllFileInReportNGScreenShot -->
+        <test-method is-config="true" signature="BeforeClass(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Android.Topic_02_OpenBrowser@1a480135]" started-at="2021-02-26T18:11:54 ICT" name="BeforeClass" finished-at="2021-02-26T18:12:09 ICT" duration-ms="14678" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[false]]>
+                <![CDATA[true]]>
               </value>
             </param>
             <param index="1">
@@ -38,7 +42,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeClass -->
-        <test-method signature="TC_01_Login_Successfully(java.lang.String)[pri:0, instance:Android.Topic_01_BasicTest@4d74c3ba]" started-at="2021-02-25T21:42:04 ICT" name="TC_01_Login_Successfully" finished-at="2021-02-25T21:42:10 ICT" duration-ms="6010" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Android.Topic_02_OpenBrowser@1a480135]" started-at="2021-02-26T18:12:09 ICT" name="beforeMethod" finished-at="2021-02-26T18:12:10 ICT" duration-ms="1219" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC_01_Login_Successfully(java.lang.String)[pri:0, instance:Android.Topic_02_OpenBrowser@1a480135]" started-at="2021-02-26T18:12:10 ICT" name="TC_01_Login_Successfully" finished-at="2021-02-26T18:12:26 ICT" duration-ms="15985" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -49,11 +57,18 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC_01_Login_Successfully -->
-        <test-method signature="TC_02_Filter()[pri:0, instance:Android.Topic_01_BasicTest@4d74c3ba]" started-at="2021-02-25T21:42:10 ICT" name="TC_02_Filter" finished-at="2021-02-25T21:42:15 ICT" duration-ms="4807" status="PASS">
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Android.Topic_02_OpenBrowser@1a480135]" started-at="2021-02-26T18:12:26 ICT" name="afterMethod" finished-at="2021-02-26T18:12:27 ICT" duration-ms="1096" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=TC_01_Login_Successfully status=SUCCESS method=Topic_02_OpenBrowser.TC_01_Login_Successfully(java.lang.String)[pri:0, instance:Android.Topic_02_OpenBrowser@1a480135] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_02_Filter -->
-      </class> <!-- Android.Topic_01_BasicTest -->
+        </test-method> <!-- afterMethod -->
+      </class> <!-- Android.Topic_02_OpenBrowser -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>
