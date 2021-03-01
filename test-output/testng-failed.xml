@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]">
-  <test thread-count="5" name="Test(failed)">
+<suite parallel="tests" name="Failed suite [Suite]">
+  <parameter name="appUrl" value="https://tiki.vn/"/>
+  <test thread-count="5" parallel="tests" name="Test emulator(failed)">
     <parameter name="emulator" value="true"/>
-    <parameter name="platformVersion" value="11.0"/>
+    <parameter name="platformVersion" value="9.0"/>
     <parameter name="platformName" value="Android"/>
     <parameter name="udid" value="1876ca52"/>
-    <parameter name="deviceName" value="Pixel_3"/>
+    <parameter name="deviceName" value="Pixel_XL_API_28"/>
     <classes>
-      <class name="Android.Topic_02_OpenBrowser">
+      <class name="Android.Topic_01_BasicTest">
         <methods>
-          <include name="BeforeClass"/>
+          <include name="TC_01_Login_Successfully" invocation-numbers="0"/>
           <include name="afterMethod"/>
           <include name="deleteAllFileInReportNGScreenShot"/>
           <include name="beforeMethod"/>
-          <include name="TC_01_Login_Successfully"/>
+          <include name="BeforeClass"/>
+          <include name="beforeSuite"/>
+          <include name="TC_02_Filter"/>
+          <include name="afterSuite"/>
         </methods>
-      </class> <!-- Android.Topic_02_OpenBrowser -->
+      </class> <!-- Android.Topic_01_BasicTest -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- Test emulator(failed) -->
 </suite> <!-- Failed suite [Suite] -->

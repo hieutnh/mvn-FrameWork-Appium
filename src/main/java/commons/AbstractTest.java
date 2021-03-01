@@ -2,11 +2,14 @@ package commons;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.net.ServerSocket;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
@@ -14,21 +17,26 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.log4j.Logger;
+import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.screenrecording.CanRecordScreen;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
+import io.appium.java_client.service.local.flags.GeneralServerFlag;
 
 public class AbstractTest {
 	protected static ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<WebDriver>();
 	protected final Logger log;
-
+	private static AppiumDriverLocalService server;
 	protected AbstractTest() {
 		log = Logger.getLogger(getClass());
 	}
@@ -37,7 +45,7 @@ public class AbstractTest {
 	InputStream inputStream;
 	String sourceFolder = System.getProperty("user.dir");
 
-	public WebDriver getBrowserDriver(String emulator, String platformName, String platformVersion, String udid, String deviceName) throws Exception {
+	public WebDriver getBrowserDriver(String emulator, String platformName, String platformVersion, String udid, String deviceName,String appUrl) {
 		URL url;
 		try {
 			pros = new Properties();
@@ -83,8 +91,8 @@ public class AbstractTest {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw e;
 		}
+//		getDriver().get(appUrl);
 		return getDriver();
 
 	}
@@ -164,4 +172,57 @@ public class AbstractTest {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	@BeforeSuite
+	public void beforeSuite() throws Exception, Exception {
+		ThreadContext.put("ROUTINGKEY", "ServerLogs");
+//		server = getAppiumService();
+		server = getAppiumServerDefault();
+		if(!checkIfAppiumServerIsRunnning(4723)) {
+			server.start();
+			server.clearOutPutStreams();
+			log.info("Appium server started");
+		} else {
+			log.info("Appium server already running");
+		}	
+	}
+	
+	public boolean checkIfAppiumServerIsRunnning(int port) throws Exception {
+	    boolean isAppiumServerRunning = false;
+	    ServerSocket socket;
+	    try {
+	        socket = new ServerSocket(port);
+	        socket.close();
+	    } catch (IOException e) {
+	    	System.out.println("1");
+	        isAppiumServerRunning = true;
+	    } finally {
+	        socket = null;
+	    }
+	    return isAppiumServerRunning;
+	}
+	
+	@AfterSuite
+	public void afterSuite() {
+		server.stop();
+		log.info("Appium server stopped");
+	}
+	
+	public AppiumDriverLocalService getAppiumServerDefault() {
+		return AppiumDriverLocalService.buildDefaultService();
+	}
+	
+	public AppiumDriverLocalService getAppiumService() {
+		HashMap<String, String> environment = new HashMap<String, String>();
+		environment.put("PATH", "E:\\Automation\\2.Appium\\sdk AndroidStudio\\platform-tools;E:\\Automation\\2.Appium\\sdk AndroidStudio\\tools;E:\\Automation\\2.Appium\\sdk AndroidStudio\\tools\\bin;" + System.getenv("PATH"));
+		environment.put("ANDROID_HOME", "E:\\Automation\\2.Appium\\sdk AndroidStudio");
+		return AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
+				.usingDriverExecutable(new File("E:\\Automation\\2.Appium\\3.NodeJS\\node.exe"))
+				.withAppiumJS(new File("C:\\Users\\hieut\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
+				.usingPort(4723)
+				.withArgument(GeneralServerFlag.SESSION_OVERRIDE)
+				.withEnvironment(environment)
+				.withLogFile(new File("ServerLogs/server.log")));
+	}
+	
 }

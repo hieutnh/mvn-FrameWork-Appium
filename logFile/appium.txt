@@ -1,0 +1,3 @@
+2021-03-01 21:43:42,744 INFO  Android.Topic_04_TestDeepLink$Topic_03_ZoomIn_Out - Appium server started
+2021-03-01 21:43:51,318 INFO  Android.Topic_04_TestDeepLink$Topic_03_ZoomIn_Out - Test With Android
+2021-03-01 21:43:53,773 INFO  Android.Topic_04_TestDeepLink$Topic_03_ZoomIn_Out - Appium server stopped

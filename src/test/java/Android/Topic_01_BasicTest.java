@@ -18,10 +18,10 @@ public class Topic_01_BasicTest extends AbstractTest {
 	WebDriver driver;
 	String sourceFolder = System.getProperty("user.dir");
 
-	@Parameters({ "emulator", "platformName", "platformVersion", "udid", "deviceName" })
+	@Parameters({ "emulator", "platformName", "platformVersion", "udid", "deviceName", "appUrl" })
 	@BeforeClass
-	public void BeforeClass(String emulator, String platformName, String platformVersion, String udid, String deviceName) throws Exception {
-		driver = getBrowserDriver(emulator, platformName, platformVersion, udid, deviceName);
+	public void BeforeClass(String emulator, String platformName, String platformVersion, String udid, String deviceName, String appUrl) {
+		driver = getBrowserDriver(emulator, platformName, platformVersion, udid, deviceName, appUrl);
 	}
 
 	@Parameters({ "platformName" })

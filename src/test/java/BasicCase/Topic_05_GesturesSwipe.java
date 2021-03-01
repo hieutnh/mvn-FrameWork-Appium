@@ -32,19 +32,19 @@ class Topic_05_GesturesSwipe {
         int startY = (int) (size.height * 0.8);
         int endY = (int) (size.height * 0.2);
 
-//        TouchAction t = new TouchAction(driver);
-//        t.press(PointOption.point(startX, startY))
-//                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000)))
-//                .moveTo(PointOption.point(endX, endY))
-//                .release()
-//                .perform();
-
         TouchAction t = new TouchAction(driver);
-        t.press(ElementOption.element(driver.findElement(grid)))
+        t.press(PointOption.point(startX, startY))
                 .waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000)))
-                .moveTo(ElementOption.element(driver.findElement(animation)))
+                .moveTo(PointOption.point(endX, endY))
                 .release()
                 .perform();
+
+//        TouchAction t = new TouchAction(driver);
+//        t.press(ElementOption.element(driver.findElement(grid)))
+//                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000)))
+//                .moveTo(ElementOption.element(driver.findElement(animation)))
+//                .release()
+//                .perform();
     }
 }
 //TAP, PRESS, LONGPRESS, WAITACTION, RELEASE, PERFORM, MOVETO

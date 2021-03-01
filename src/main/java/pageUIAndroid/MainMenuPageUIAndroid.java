@@ -11,5 +11,7 @@ public class MainMenuPageUIAndroid {
 	public static final String 	SCROLLFINDBACKPACK = "//android.widget.ScrollView[@content-desc=\"test-PRODUCTS\"]/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.TextView[3]";
 	public static final String 	Clickurl = "//android.widget.EditText[@resource-id='com.android.chrome:id/search_box_text']";
 	public static final String 	url = "//android.widget.EditText[@resource-id='com.android.chrome:id/url_bar']";
+	public static final String 	IMAGEBACKPACK1 = "(//android.view.ViewGroup[@content-desc=\"test-Item\"])[1]/android.view.ViewGroup/android.widget.ImageView";
+	public static final String 	IMAGEBACKPACK2 = "//android.view.ViewGroup[@content-desc=\"test-Image Container\"]/android.widget.ImageView";
 
 }

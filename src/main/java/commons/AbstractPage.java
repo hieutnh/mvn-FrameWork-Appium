@@ -19,6 +19,7 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -29,6 +30,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.MultiTouchAction;
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
@@ -217,11 +219,10 @@ public class AbstractPage {
 		element.click();
 	}
 
-	
-	public void sendKeyKeyBoardMobile(WebDriver driver) {
-		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
-    }
-	
+	public void sendKeyKeyBoardMobile(WebDriver driver, AndroidKey key) {
+		((AndroidDriver) driver).pressKey(new KeyEvent(key));
+	}
+
 	public void sendkeyToElement(WebDriver driver, String locator, String value) {
 		element = getElement(driver, locator);
 		element.clear();
@@ -234,10 +235,6 @@ public class AbstractPage {
 	public void sendkeyToElementClear(WebDriver driver, String locator) {
 		element = getElement(driver, locator);
 		element.clear();
-	}
-	
-	public void sendKeyBoardMobile (WebDriver driver) {
-		((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.ENTER));
 	}
 
 	public void sendkeyToElement(WebDriver driver, String locator, String value, String... values) {
@@ -557,9 +554,9 @@ public class AbstractPage {
 		action = new Actions(driver);
 		element.sendKeys(Keys.chord(Keys.CONTROL, "a"));
 		element.sendKeys(Keys.chord(Keys.BACK_SPACE));
-		
+
 	}
-	
+
 	public void sendKeyboardEnter(WebDriver driver, String locator) {
 		element = getElement(driver, locator);
 		element.sendKeys(Keys.chord(Keys.ENTER));
@@ -701,6 +698,47 @@ public class AbstractPage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void zoomINandOut(WebDriver driver, String locator) {
+		element = getElement(driver, locator);
+		int center_X = element.getLocation().getX() + (element.getSize().width / 2);
+		int center_Y = element.getLocation().getY() + (element.getSize().height / 2);
+		
+		MultiTouchAction multiTouchAction = new MultiTouchAction((PerformsTouchActions) driver);
+		
+		TouchAction zoomOut = new TouchAction((PerformsTouchActions) driver);
+		zoomOut.longPress(PointOption.point(center_X, center_Y - 10)).moveTo(PointOption.point(center_X, center_Y)).perform();
+		TouchAction zoomIn = new TouchAction((PerformsTouchActions) driver);
+		zoomOut.longPress(PointOption.point(center_X, center_Y + 10)).moveTo(PointOption.point(center_X, center_Y +200)).perform();
+		
+		multiTouchAction.add(zoomOut).add(zoomIn).perform();
+	}
+	
+	public void zoomINandOut2(WebDriver driver) {
+		Dimension dim = driver.manage().window().getSize();
+		int x = dim.getWidth() / 2;
+		int startY = 0;
+		int endY = 0;
+		int endY2 = 0;
+
+//		switch (direction) {
+//		case "up":
+//			startY = (int) (dim.getHeight() * 0.7);
+//			endY = (int) (dim.getHeight() * 0.4);
+//			endY2 = (int) (dim.getHeight() * 0.8);
+//			break;
+//		case "down":
+//			startY = (int) (dim.getHeight() * 0.2);
+//			endY = (int) (dim.getHeight() * 0.8);
+//			break;
+//		}
+		TouchAction t = new TouchAction((PerformsTouchActions) driver);
+		t.longPress(PointOption.point(508, 1472)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000))).moveTo(PointOption.point(508, 1800));
+		TouchAction t1 = new TouchAction((PerformsTouchActions) driver);
+		t1.longPress(PointOption.point(514, 911)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000))).moveTo(PointOption.point(508, 318));
+		MultiTouchAction multiTouchAction = new MultiTouchAction((PerformsTouchActions) driver);
+		multiTouchAction.add(t).add(t1).perform();
 	}
 
 	public String getDirectorySlash(String folderName) {

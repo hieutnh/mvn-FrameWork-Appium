@@ -32,7 +32,6 @@ public class mainMenuPageObject extends AbstractPage {
 	}
 
 	public void scrollTobottomPageMain(String directory) {
-		// scrollToElementMobile(driver, directory);
 		scrollToelementMobileAll(driver, MainMenuPageUIAndroid.SCROLLFINDBACKPACK, directory);
 	}
 
@@ -40,6 +39,11 @@ public class mainMenuPageObject extends AbstractPage {
 		waitToElementVisible(driver, MainMenuPageUIAndroid.Clickurl);
 		clickToElement(driver, MainMenuPageUIAndroid.Clickurl);
 		sendkeyToElement(driver, MainMenuPageUIAndroid.url, value);
-		sendKeyBoardMobile(driver);
+	}
+
+	public void zoomInAndOut() {
+//		waitToElementVisible(driver, MainMenuPageUIAndroid.IMAGEBACKPACK1);
+//		clickToElement(driver, MainMenuPageUIAndroid.IMAGEBACKPACK1);
+		zoomINandOut2(driver);
 	}
 }

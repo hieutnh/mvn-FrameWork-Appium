@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<suite name="Suite" parallel="false">
+<suite name="Suite" parallel="tests" thread-cound="2">
+	<parameter name="appUrl" value="https://tiki.vn/" />
+	<!-- <parameter name="emulator" value="true" /> -->
+	<!-- <parameter name="platformName" value="Android" /> -->
+	<!-- <parameter name="platformVersion" value="11.0" /> -->
+	<!-- <parameter name="udid" value="1876ca52" /> -->
+	<!-- <parameter name="deviceName" value="Pixel_3" /> -->
+	<!-- <test name="Test"> -->
+	<!-- <classes> -->
+	<!-- <class name="Android.Topic_02_OpenBrowser" /> -->
+	<!-- </classes> -->
+	<!-- </test> -->
 
-	<test name="Test">
+	<test name="Test emulator">
 		<parameter name="emulator" value="true" />
 		<parameter name="platformName" value="Android" />
-		<parameter name="platformVersion" value="11.0" />
+		<parameter name="platformVersion" value="9.0" />
 		<parameter name="udid" value="1876ca52" />
-		<parameter name="deviceName" value="Pixel_3" />
+		<parameter name="deviceName" value="Pixel_XL_API_28" />
 		<classes>
-			<class name="Android.Topic_02_OpenBrowser" />
+<!-- 			<class name="Android.Topic_03_ZoomIn_Out" /> -->
+			<class name="Android.Topic_04_TestDeepLink" />
 		</classes>
 	</test>
 
