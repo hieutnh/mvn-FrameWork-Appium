@@ -14,7 +14,7 @@
           <include name="afterMethod"/>
           <include name="deleteAllFileInReportNGScreenShot"/>
           <include name="beforeMethod"/>
-          <include name="TC_01_Login_Successfully" invocation-numbers="0"/>
+          <include name="TC_01_Login_Successfully"/>
         </methods>
       </class> <!-- Android.Topic_02_OpenBrowser -->
     </classes>

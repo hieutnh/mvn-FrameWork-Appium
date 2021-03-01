@@ -11,6 +11,9 @@ import java.util.Map;
 import java.util.Properties;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestResult;
@@ -24,6 +27,11 @@ import io.appium.java_client.screenrecording.CanRecordScreen;
 
 public class AbstractTest {
 	protected static ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<WebDriver>();
+	protected final Logger log;
+
+	protected AbstractTest() {
+		log = Logger.getLogger(getClass());
+	}
 	protected WebDriver driver;
 	protected Properties pros;
 	InputStream inputStream;
@@ -59,6 +67,7 @@ public class AbstractTest {
 
 				// driver = new AndroidDriver(url, caps);
 				setDriver(new AndroidDriver(url, caps));
+				log.info("Test With Android");
 				break;
 			case "iOS":
 				caps.setCapability("automationName", pros.getProperty("iOSAutomationName"));
