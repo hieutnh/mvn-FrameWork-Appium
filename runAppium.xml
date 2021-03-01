@@ -20,7 +20,7 @@
 		<parameter name="deviceName" value="Pixel_XL_API_28" />
 		<classes>
 <!-- 			<class name="Android.Topic_03_ZoomIn_Out" /> -->
-			<class name="Android.Topic_04_TestDeepLink" />
+			<class name="Android.Topic_01_BasicTest" />
 		</classes>
 	</test>
 

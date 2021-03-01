@@ -11,7 +11,6 @@
     <classes>
       <class name="Android.Topic_01_BasicTest">
         <methods>
-          <include name="TC_01_Login_Successfully" invocation-numbers="0"/>
           <include name="afterMethod"/>
           <include name="deleteAllFileInReportNGScreenShot"/>
           <include name="beforeMethod"/>

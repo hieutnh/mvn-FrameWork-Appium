@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
     <line>
-      <![CDATA[2021-03-01 21:43:42,744 INFO  Android.Topic_04_TestDeepLink$Topic_03_ZoomIn_Out - Appium server started
+      <![CDATA[2021-03-01 21:50:14,010 INFO  Android.Topic_01_BasicTest - Appium server already running
 ]]>
     </line>
     <line>
-      <![CDATA[2021-03-01 21:43:51,318 INFO  Android.Topic_04_TestDeepLink$Topic_03_ZoomIn_Out - Test With Android
+      <![CDATA[2021-03-01 21:50:21,918 INFO  Android.Topic_01_BasicTest - Test With Android
 ]]>
     </line>
     <line>
-      <![CDATA[2021-03-01 21:43:53,773 INFO  Android.Topic_04_TestDeepLink$Topic_03_ZoomIn_Out - Appium server stopped
+      <![CDATA[2021-03-01 21:50:42,615 INFO  Android.Topic_01_BasicTest - Appium server stopped
 ]]>
     </line>
   </reporter-output>
-  <suite started-at="2021-03-01T21:43:42 ICT" name="Suite" finished-at="2021-03-01T21:43:53 ICT" duration-ms="10938">
+  <suite started-at="2021-03-01T21:50:14 ICT" name="Suite" finished-at="2021-03-01T21:50:42 ICT" duration-ms="28564">
     <groups>
     </groups>
-    <test started-at="2021-03-01T21:43:42 ICT" name="Test emulator" finished-at="2021-03-01T21:43:53 ICT" duration-ms="10938">
-      <class name="Android.Topic_04_TestDeepLink$Topic_03_ZoomIn_Out">
-        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:Android.Topic_04_TestDeepLink$Topic_03_ZoomIn_Out@56f521c6]" started-at="2021-03-01T21:43:40 ICT" name="beforeSuite" finished-at="2021-03-01T21:43:42 ICT" duration-ms="1978" status="PASS">
+    <test started-at="2021-03-01T21:50:14 ICT" name="Test emulator" finished-at="2021-03-01T21:50:42 ICT" duration-ms="28564">
+      <class name="Android.Topic_01_BasicTest">
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:Android.Topic_01_BasicTest@680a66dd]" started-at="2021-03-01T21:50:13 ICT" name="beforeSuite" finished-at="2021-03-01T21:50:14 ICT" duration-ms="978" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[2021-03-01 21:43:42,744 INFO  Android.Topic_04_TestDeepLink$Topic_03_ZoomIn_Out - Appium server started
+              <![CDATA[2021-03-01 21:50:14,010 INFO  Android.Topic_01_BasicTest - Appium server already running
 ]]>
             </line>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method is-config="true" signature="deleteAllFileInReportNGScreenShot()[pri:0, instance:Android.Topic_04_TestDeepLink$Topic_03_ZoomIn_Out@56f521c6]" started-at="2021-03-01T21:43:42 ICT" name="deleteAllFileInReportNGScreenShot" finished-at="2021-03-01T21:43:42 ICT" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="deleteAllFileInReportNGScreenShot()[pri:0, instance:Android.Topic_01_BasicTest@680a66dd]" started-at="2021-03-01T21:50:14 ICT" name="deleteAllFileInReportNGScreenShot" finished-at="2021-03-01T21:50:14 ICT" duration-ms="3" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteAllFileInReportNGScreenShot -->
-        <test-method is-config="true" signature="BeforeClass(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Android.Topic_04_TestDeepLink$Topic_03_ZoomIn_Out@56f521c6]" started-at="2021-03-01T21:43:42 ICT" name="BeforeClass" finished-at="2021-03-01T21:43:51 ICT" duration-ms="8540" status="PASS">
+        <test-method is-config="true" signature="BeforeClass(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Android.Topic_01_BasicTest@680a66dd]" started-at="2021-03-01T21:50:14 ICT" name="BeforeClass" finished-at="2021-03-01T21:50:21 ICT" duration-ms="7872" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -66,16 +66,16 @@
           </params>
           <reporter-output>
             <line>
-              <![CDATA[2021-03-01 21:43:51,318 INFO  Android.Topic_04_TestDeepLink$Topic_03_ZoomIn_Out - Test With Android
+              <![CDATA[2021-03-01 21:50:21,918 INFO  Android.Topic_01_BasicTest - Test With Android
 ]]>
             </line>
           </reporter-output>
         </test-method> <!-- BeforeClass -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Android.Topic_04_TestDeepLink$Topic_03_ZoomIn_Out@56f521c6]" started-at="2021-03-01T21:43:51 ICT" name="beforeMethod" finished-at="2021-03-01T21:43:51 ICT" duration-ms="592" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Android.Topic_01_BasicTest@680a66dd]" started-at="2021-03-01T21:50:21 ICT" name="beforeMethod" finished-at="2021-03-01T21:50:22 ICT" duration-ms="666" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC_01_Test_Deeplink(java.lang.String)[pri:0, instance:Android.Topic_04_TestDeepLink$Topic_03_ZoomIn_Out@56f521c6]" started-at="2021-03-01T21:43:52 ICT" name="TC_01_Test_Deeplink" finished-at="2021-03-01T21:43:52 ICT" duration-ms="656" status="PASS">
+        <test-method signature="TC_01_Login_Successfully(java.lang.String)[pri:0, instance:Android.Topic_01_BasicTest@680a66dd]" started-at="2021-03-01T21:50:22 ICT" name="TC_01_Login_Successfully" finished-at="2021-03-01T21:50:27 ICT" duration-ms="4964" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -85,27 +85,46 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_01_Test_Deeplink -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Android.Topic_04_TestDeepLink$Topic_03_ZoomIn_Out@56f521c6]" started-at="2021-03-01T21:43:52 ICT" name="afterMethod" finished-at="2021-03-01T21:43:53 ICT" duration-ms="920" status="PASS">
+        </test-method> <!-- TC_01_Login_Successfully -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Android.Topic_01_BasicTest@680a66dd]" started-at="2021-03-01T21:50:27 ICT" name="afterMethod" finished-at="2021-03-01T21:50:28 ICT" duration-ms="938" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=TC_01_Test_Deeplink status=SUCCESS method=Topic_04_TestDeepLink$Topic_03_ZoomIn_Out.TC_01_Test_Deeplink(java.lang.String)[pri:0, instance:Android.Topic_04_TestDeepLink$Topic_03_ZoomIn_Out@56f521c6] output={null}]]]>
+                <![CDATA[[TestResult name=TC_01_Login_Successfully status=SUCCESS method=Topic_01_BasicTest.TC_01_Login_Successfully(java.lang.String)[pri:0, instance:Android.Topic_01_BasicTest@680a66dd] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="afterSuite()[pri:0, instance:Android.Topic_04_TestDeepLink$Topic_03_ZoomIn_Out@56f521c6]" started-at="2021-03-01T21:43:53 ICT" name="afterSuite" finished-at="2021-03-01T21:43:53 ICT" duration-ms="65" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Android.Topic_01_BasicTest@680a66dd]" started-at="2021-03-01T21:50:28 ICT" name="beforeMethod" finished-at="2021-03-01T21:50:29 ICT" duration-ms="534" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC_02_Filter()[pri:0, instance:Android.Topic_01_BasicTest@680a66dd]" started-at="2021-03-01T21:50:29 ICT" name="TC_02_Filter" finished-at="2021-03-01T21:50:41 ICT" duration-ms="12033" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_02_Filter -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Android.Topic_01_BasicTest@680a66dd]" started-at="2021-03-01T21:50:41 ICT" name="afterMethod" finished-at="2021-03-01T21:50:42 ICT" duration-ms="1294" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=TC_02_Filter status=SUCCESS method=Topic_01_BasicTest.TC_02_Filter()[pri:0, instance:Android.Topic_01_BasicTest@680a66dd] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:Android.Topic_01_BasicTest@680a66dd]" started-at="2021-03-01T21:50:42 ICT" name="afterSuite" finished-at="2021-03-01T21:50:42 ICT" duration-ms="1" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[2021-03-01 21:43:53,773 INFO  Android.Topic_04_TestDeepLink$Topic_03_ZoomIn_Out - Appium server stopped
+              <![CDATA[2021-03-01 21:50:42,615 INFO  Android.Topic_01_BasicTest - Appium server stopped
 ]]>
             </line>
           </reporter-output>
         </test-method> <!-- afterSuite -->
-      </class> <!-- Android.Topic_04_TestDeepLink$Topic_03_ZoomIn_Out -->
+      </class> <!-- Android.Topic_01_BasicTest -->
     </test> <!-- Test emulator -->
   </suite> <!-- Suite -->
 </testng-results>
