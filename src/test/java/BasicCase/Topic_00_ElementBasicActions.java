@@ -11,7 +11,7 @@ import io.appium.java_client.touch.offset.PointOption;
 public class Topic_00_ElementBasicActions {
 
 	public static void main(String[] args) throws Exception {
-		AppiumDriver driver = CreateDriverSession.initializeDriver("BasicCase");
+		AppiumDriver driver = CreateDriverSession.initializeDriver("Android");
 
 		By views = MobileBy.AccessibilityId("Views");
 		By textFields = MobileBy.AccessibilityId("TextFields");

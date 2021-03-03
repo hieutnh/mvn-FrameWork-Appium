@@ -16,12 +16,12 @@ public class CreateDriverSession {
 	public static AppiumDriver initializeDriver(String platformName) throws Exception {
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability(MobileCapabilityType.PLATFORM_NAME, platformName);
-		caps.setCapability("newCommandTimeout", 300);
+//		caps.setCapability("newCommandTimeout", 300);
 		URL url = new URL("http://0.0.0.0:4723/wd/hub");
 
 		switch (platformName) {
 		case "Android":
-			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel 3");
+			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel_4_API_30");
 //			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "redmi");
 			caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
 

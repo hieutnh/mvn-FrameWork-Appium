@@ -4,13 +4,14 @@
   <parameter name="appUrl" value="https://tiki.vn/"/>
   <test thread-count="5" parallel="tests" name="Test emulator(failed)">
     <parameter name="emulator" value="true"/>
-    <parameter name="platformVersion" value="9.0"/>
+    <parameter name="platformVersion" value="11.0"/>
     <parameter name="platformName" value="Android"/>
     <parameter name="udid" value="1876ca52"/>
     <parameter name="deviceName" value="Pixel_XL_API_28"/>
     <classes>
       <class name="Android.Topic_01_BasicTest">
         <methods>
+          <include name="TC_01_Login_Successfully"/>
           <include name="afterMethod"/>
           <include name="deleteAllFileInReportNGScreenShot"/>
           <include name="beforeMethod"/>

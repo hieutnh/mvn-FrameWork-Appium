@@ -28,6 +28,7 @@ import org.testng.annotations.BeforeSuite;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.screenrecording.CanRecordScreen;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
@@ -41,50 +42,43 @@ public class AbstractTest {
 		log = Logger.getLogger(getClass());
 	}
 	protected WebDriver driver;
-	protected Properties pros;
-	InputStream inputStream;
 	String sourceFolder = System.getProperty("user.dir");
 
 	public WebDriver getBrowserDriver(String emulator, String platformName, String platformVersion, String udid, String deviceName,String appUrl) {
 		URL url;
 		try {
-			pros = new Properties();
-			String propFileName = "config.properties";
-			inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
-			pros.load(inputStream);
 
 			DesiredCapabilities caps = new DesiredCapabilities();
-			caps.setCapability("platformName", platformName);
-			caps.setCapability("deviceName", deviceName);
-
+			caps.setCapability(MobileCapabilityType.PLATFORM_NAME, platformName);
+			caps.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
+			url = new URL("http://127.0.0.1:4723/wd/hub");
 			switch (platformName) {
 			case "Android":
-				caps.setCapability("automationName", pros.getProperty("androidAutomationName"));
-				caps.setCapability("appPackage", pros.getProperty("androdiAppPackage"));
-				caps.setCapability("appActivity", pros.getProperty("androidActivity"));
+				caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
+				caps.setCapability("appPackage", "com.swaglabsmobileapp");
+				caps.setCapability("appActivity", "com.swaglabsmobileapp.SplashActivity");
 				if (emulator.equalsIgnoreCase("true")) {
-					caps.setCapability("platformVersion", platformVersion);
 					caps.setCapability("avd", deviceName);
 					caps.setCapability("avdLaunchTimeout", 120000);
 				} else {
-					caps.setCapability("udid", udid);
+					caps.setCapability(MobileCapabilityType.UDID, udid);
 				}
-				URL androidUrl = getClass().getClassLoader().getResource(pros.getProperty("androidAppLocation"));
-				caps.setCapability("app", androidUrl);
-				url = new URL(pros.getProperty("appiumURL"));
+				String apkFile = System.getProperty("user.dir") + File.separator + "APK" + File.separator + "Android.SauceLabs.apk";
+				caps.setCapability(MobileCapabilityType.APP, apkFile);
+				
 
 				// driver = new AndroidDriver(url, caps);
 				setDriver(new AndroidDriver(url, caps));
 				log.info("Test With Android");
 				break;
 			case "iOS":
-				caps.setCapability("automationName", pros.getProperty("iOSAutomationName"));
-				caps.setCapability("platformVersion", platformVersion);
-				URL iOSUrl = getClass().getClassLoader().getResource(pros.getProperty("iOSAppLocation"));
-				caps.setCapability("app", iOSUrl);
-				url = new URL(pros.getProperty("appiumURL"));
+				caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
+				caps.setCapability("bundleId", "org.askomdch.SwagLabMobileApp");
+				String iOSUrl = System.getProperty("user.dir") + File.separator + "APK" + File.separator + "Android.SauceLabs.apk";
+				caps.setCapability(MobileCapabilityType.APP, iOSUrl);
 
 				setDriver(new IOSDriver(url, caps));
+				log.info("Test With IOS");
 				break;
 			default:
 				throw new Exception("Invalid platform :" + platformName);
@@ -180,7 +174,7 @@ public class AbstractTest {
 		server = getAppiumServerDefault();
 		if(!checkIfAppiumServerIsRunnning(4723)) {
 			server.start();
-			server.clearOutPutStreams();
+//			server.clearOutPutStreams();
 			log.info("Appium server started");
 		} else {
 			log.info("Appium server already running");
@@ -210,18 +204,23 @@ public class AbstractTest {
 	
 	public AppiumDriverLocalService getAppiumServerDefault() {
 		return AppiumDriverLocalService.buildDefaultService();
+		
 	}
 	
 	public AppiumDriverLocalService getAppiumService() {
 		HashMap<String, String> environment = new HashMap<String, String>();
-		environment.put("PATH", "E:\\Automation\\2.Appium\\sdk AndroidStudio\\platform-tools;E:\\Automation\\2.Appium\\sdk AndroidStudio\\tools;E:\\Automation\\2.Appium\\sdk AndroidStudio\\tools\\bin;" + System.getenv("PATH"));
-		environment.put("ANDROID_HOME", "E:\\Automation\\2.Appium\\sdk AndroidStudio");
+//		environment.put("PATH", "E:\\Automation\\2.Appium\\sdk AndroidStudio\\platform-tools;E:\\Automation\\2.Appium\\sdk AndroidStudio\\tools;E:\\Automation\\2.Appium\\sdk AndroidStudio\\tools\\bin;" + System.getenv("PATH"));
+//		environment.put("PATH", "C:\\Users\\APC\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Users\\APC\\AppData\\Local\\Android\\Sdk\\tools;C:\\Users\\APC\\AppData\\Local\\Android\\Sdk\\tools\\bin" + System.getenv("PATH"));
+//		environment.put("ANDROID_HOME", "E:\\Automation\\2.Appium\\sdk AndroidStudio");
+//		environment.put("ANDROID_HOME", "C:\\Users\\APC\\AppData\\Local\\Android\\Sdk");
 		return AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
-				.usingDriverExecutable(new File("E:\\Automation\\2.Appium\\3.NodeJS\\node.exe"))
-				.withAppiumJS(new File("C:\\Users\\hieut\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
+//				.usingDriverExecutable(new File("E:\\Automation\\2.Appium\\3.NodeJS\\node.exe"))
+//				.usingDriverExecutable(new File("D:\\java-2020-12\\NodeJS\\node.exe"))
+//				.withAppiumJS(new File("C:\\Users\\hieut\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
+//				.withAppiumJS(new File("C:\\Users\\APC\\AppData\\Roaming\\npm\\node_modules\\appium\\lib\\main.js"))
 				.usingPort(4723)
 				.withArgument(GeneralServerFlag.SESSION_OVERRIDE)
-				.withEnvironment(environment)
+//				.withEnvironment(environment)
 				.withLogFile(new File("ServerLogs/server.log")));
 	}
 	
