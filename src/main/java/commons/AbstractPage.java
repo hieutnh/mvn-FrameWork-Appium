@@ -37,6 +37,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 import pageUIAndroid.AbstractPageUI;
 
@@ -623,7 +624,7 @@ public class AbstractPage {
 
 	}
 
-	public void scrollUpDownMobile(WebDriver driver, String direction) {
+	public void scrollAndSwipeToPoint(WebDriver driver, String direction) {
 		Dimension dim = driver.manage().window().getSize();
 		int x = dim.getWidth() / 2;
 		int y = dim.getHeight() / 2;
@@ -636,99 +637,53 @@ public class AbstractPage {
 		case "up":
 			startY = (int) (dim.getHeight() * 0.8);
 			endY = (int) (dim.getHeight() * 0.2);
+			TouchAction t = new TouchAction((PerformsTouchActions) driver);
+			t.press(PointOption.point(x, startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000))).moveTo(PointOption.point(x, endY)).release().perform();
 			break;
 		case "down":
 			startY = (int) (dim.getHeight() * 0.2);
 			endY = (int) (dim.getHeight() * 0.8);
+			TouchAction t1 = new TouchAction((PerformsTouchActions) driver);
+			t1.press(PointOption.point(x, startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000))).moveTo(PointOption.point(x, endY)).release().perform();
 			break;
 		case "right":
-			startY = (int) (dim.getWidth() * 0.09);
-			endY = (int) (dim.getWidth() * 0.05);
+			startX = (int) (dim.getWidth() * 0.05);
+			endX = (int) (dim.getWidth() * 0.90);
+			TouchAction t2 = new TouchAction((PerformsTouchActions) driver);
+			t2.press(PointOption.point(startX, y)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000))).moveTo(PointOption.point(endX, y)).release().perform();
 			break;
 		case "left":
-			startY = (int) (dim.getWidth() * 0.05);
-			endY = (int) (dim.getWidth() * 0.09);
+			startX = (int) (dim.getWidth() * 0.90);
+			endX = (int) (dim.getWidth() * 0.05);
+			TouchAction t3 = new TouchAction((PerformsTouchActions) driver);
+			t3.press(PointOption.point(startX, y)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000))).moveTo(PointOption.point(endX, y)).release().perform();
 			break;
 		}
+	}
+
+	public void scrollFromElementToElement(WebDriver driver, String direction, String locator1, String locator2) {
 		TouchAction t = new TouchAction((PerformsTouchActions) driver);
-		t.press(PointOption.point(x, startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000))).moveTo(PointOption.point(x, endY)).release().perform();
-		TouchAction t1 = new TouchAction((PerformsTouchActions) driver);
-		t.press(PointOption.point(x, startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000))).moveTo(PointOption.point(x, endY)).release().perform();
+		t.press(ElementOption.element(getElement(driver, locator1))).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500))).moveTo(ElementOption.element(getElement(driver, locator2))).release().perform();
 	}
 
-	public static void swipeOnMobile(WebDriver driver, String direction) {
-		Dimension size = driver.manage().window().getSize();
 
-		int startX = 0;
-		int endX = 0;
-		int startY = 0;
-		int endY = 0;
-
-		switch (direction) {
-		case "right":
-			startY = (int) (size.height / 2);
-			startX = (int) (size.width * 0.90);
-			endX = (int) (size.width * 0.05);
-			break;
-
-		case "left":
-			startY = (int) (size.height / 2);
-			startX = (int) (size.width * 0.05);
-			endX = (int) (size.width * 0.90);
-			break;
-
-		case "up":
-			endY = (int) (size.height * 0.70);
-			startY = (int) (size.height * 0.30);
-			startX = (size.width / 2);
-			break;
-
-		case "down":
-			startY = (int) (size.height * 0.70);
-			endY = (int) (size.height * 0.30);
-			startX = (size.width / 2);
-
-			break;
-
-		}
-
-		TouchAction t = new TouchAction((PerformsTouchActions) driver);
-		t.press(PointOption.point(startX, startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000))).moveTo(PointOption.point(endX, startY)).release().perform();
-	}
-
-	public void scrollLeftRightMobile(WebDriver driver, int pointstartX, int pointstartY, int pointendX, int pointendY) {
-		Dimension dim = driver.manage().window().getSize();
-		TouchAction t = new TouchAction((PerformsTouchActions) driver);
-		t.press(PointOption.point(pointstartX, pointstartY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000))).moveTo(PointOption.point(pointstartX, pointendY)).release().perform();
-	}
-
-	public void scrollLeftRightMobileAll(WebDriver driver, String locator, int pointstartX, int pointstartY, int pointendX, int pointendY) {
-		for (int i = 0; i < 3; i++) {
-			if (isDisplayToScroll(driver, locator)) {
-				break;
-			} else {
-				scrollLeftRightMobile(driver, pointstartX, pointstartY, pointendX, pointendY);
-
-			}
-		}
-	}
-
-	public void swipeLeftRightMobileAll(WebDriver driver, int pointstartX, int pointstartY, int pointendX, int pointendY) {
-		scrollLeftRightMobile(driver, pointstartX, pointstartY, pointendX, pointendY);
-	}
-
-	public void scrollUpDownMobileAll(WebDriver driver, String locator, String directory) {
+	public void scrollFromPointToPoint(WebDriver driver, String locator, String directory) {
 		for (int i = 0; i < 3; i++) {
 			if (isDisplayToScroll(driver, locator)) {
 				break;
 			} else {
 				if (directory.equalsIgnoreCase("up")) {
-					scrollUpDownMobile(driver, "up");
+					scrollAndSwipeToPoint(driver, "up");
+				} else if (directory.equalsIgnoreCase("down")) {
+					scrollAndSwipeToPoint(driver, "down");
+				} else if (directory.equalsIgnoreCase("left")) {
+					scrollAndSwipeToPoint(driver, "left");
 				} else {
-					scrollUpDownMobile(driver, "right");
+					scrollAndSwipeToPoint(driver, "right");
 				}
 			}
 		}
+
 	}
 
 	public boolean isDisplayToScroll(WebDriver driver, String locator) {

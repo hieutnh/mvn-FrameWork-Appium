@@ -32,7 +32,7 @@ public class mainMenuPageObject extends AbstractPage {
 	}
 
 	public void scrollTobottomPageMain(String directory) {
-		scrollUpDownMobileAll(driver, MainMenuPageUIAndroid.SCROLLFINDBACKPACK, directory);
+		scrollFromPointToPoint(driver, MainMenuPageUIAndroid.SCROLLFINDBACKPACK, directory);
 	}
 
 	public void sendKeyToUrl(String value, Keys key) {
@@ -56,7 +56,8 @@ public class mainMenuPageObject extends AbstractPage {
 	}
 
 	public void swipeToRemove() {
-		waitToElementVisible(driver, MainMenuPageUIAndroid.SWIPETOREMOVELINK);
-		swipeOnMobile(driver, "left");
+//		waitToElementVisible(driver, MainMenuPageUIAndroid.SWIPETOREMOVELINK);
+//		scrollAndSwipeToPoint(driver,"left");
+		scrollFromElementToElement1(driver);
 	}
 }

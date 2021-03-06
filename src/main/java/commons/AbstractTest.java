@@ -59,9 +59,8 @@ public class AbstractTest {
 				caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
 				caps.setCapability("appPackage", "com.swaglabsmobileapp");
 				caps.setCapability("appActivity", "com.swaglabsmobileapp.SplashActivity");
-				// caps.setCapability("appPackage", "com.dmitrybrant.android.multitouch");
-				// caps.setCapability("appActivity",
-				// "com.dmitrybrant.android.multitouch.MultiTouchActivity");
+//				caps.setCapability("appPackage", "com.google.android.deskclock");
+//				caps.setCapability("appActivity", "com.android.deskclock.DeskClock t21");
 				if (emulator.equalsIgnoreCase("true")) {
 					caps.setCapability("avd", deviceName);
 					caps.setCapability("avdLaunchTimeout", 120000);

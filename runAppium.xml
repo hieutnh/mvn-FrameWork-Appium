@@ -17,7 +17,7 @@
 		<parameter name="platformName" value="Android" />
 		<parameter name="platformVersion" value="9.0" />
 		<parameter name="udid" value="1876ca52" />
-		<parameter name="deviceName" value="Pixel_2_API_30" />
+		<parameter name="deviceName" value="Pixel_XL_API_28" />
 		<classes>
 			<!-- <class name="Android.Topic_03_ZoomIn_Out" /> -->
 			<class name="Android.Topic_06_SwipeLeft" />
