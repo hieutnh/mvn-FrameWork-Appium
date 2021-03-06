@@ -626,6 +626,9 @@ public class AbstractPage {
 	public void scrollUpDownMobile(WebDriver driver, String direction) {
 		Dimension dim = driver.manage().window().getSize();
 		int x = dim.getWidth() / 2;
+		int y = dim.getHeight() / 2;
+		int startX = 0;
+		int endX = 0;
 		int startY = 0;
 		int endY = 0;
 
@@ -638,9 +641,59 @@ public class AbstractPage {
 			startY = (int) (dim.getHeight() * 0.2);
 			endY = (int) (dim.getHeight() * 0.8);
 			break;
+		case "right":
+			startY = (int) (dim.getWidth() * 0.09);
+			endY = (int) (dim.getWidth() * 0.05);
+			break;
+		case "left":
+			startY = (int) (dim.getWidth() * 0.05);
+			endY = (int) (dim.getWidth() * 0.09);
+			break;
 		}
 		TouchAction t = new TouchAction((PerformsTouchActions) driver);
 		t.press(PointOption.point(x, startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000))).moveTo(PointOption.point(x, endY)).release().perform();
+		TouchAction t1 = new TouchAction((PerformsTouchActions) driver);
+		t.press(PointOption.point(x, startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000))).moveTo(PointOption.point(x, endY)).release().perform();
+	}
+
+	public static void swipeOnMobile(WebDriver driver, String direction) {
+		Dimension size = driver.manage().window().getSize();
+
+		int startX = 0;
+		int endX = 0;
+		int startY = 0;
+		int endY = 0;
+
+		switch (direction) {
+		case "right":
+			startY = (int) (size.height / 2);
+			startX = (int) (size.width * 0.90);
+			endX = (int) (size.width * 0.05);
+			break;
+
+		case "left":
+			startY = (int) (size.height / 2);
+			startX = (int) (size.width * 0.05);
+			endX = (int) (size.width * 0.90);
+			break;
+
+		case "up":
+			endY = (int) (size.height * 0.70);
+			startY = (int) (size.height * 0.30);
+			startX = (size.width / 2);
+			break;
+
+		case "down":
+			startY = (int) (size.height * 0.70);
+			endY = (int) (size.height * 0.30);
+			startX = (size.width / 2);
+
+			break;
+
+		}
+
+		TouchAction t = new TouchAction((PerformsTouchActions) driver);
+		t.press(PointOption.point(startX, startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000))).moveTo(PointOption.point(endX, startY)).release().perform();
 	}
 
 	public void scrollLeftRightMobile(WebDriver driver, int pointstartX, int pointstartY, int pointendX, int pointendY) {
@@ -661,7 +714,7 @@ public class AbstractPage {
 	}
 
 	public void swipeLeftRightMobileAll(WebDriver driver, int pointstartX, int pointstartY, int pointendX, int pointendY) {
-			scrollLeftRightMobile(driver, pointstartX, pointstartY, pointendX, pointendY);
+		scrollLeftRightMobile(driver, pointstartX, pointstartY, pointendX, pointendY);
 	}
 
 	public void scrollUpDownMobileAll(WebDriver driver, String locator, String directory) {

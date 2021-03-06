@@ -57,6 +57,6 @@ public class mainMenuPageObject extends AbstractPage {
 
 	public void swipeToRemove() {
 		waitToElementVisible(driver, MainMenuPageUIAndroid.SWIPETOREMOVELINK);
-		swipeLeftRightMobileAll(driver, 913, 766, 280, 859);
+		swipeOnMobile(driver, "left");
 	}
 }
