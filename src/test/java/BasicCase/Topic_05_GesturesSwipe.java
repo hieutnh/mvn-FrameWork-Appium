@@ -32,6 +32,7 @@ class Topic_05_GesturesSwipe {
         int startY = (int) (size.height * 0.8);
         int endY = (int) (size.height * 0.2);
 
+        //move from point to point
         TouchAction t = new TouchAction(driver);
         t.press(PointOption.point(startX, startY))
                 .waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000)))
@@ -39,6 +40,15 @@ class Topic_05_GesturesSwipe {
                 .release()
                 .perform();
 
+        // move from element to point
+        TouchAction t1 = new TouchAction(driver);
+        t1.press(ElementOption.element(driver.findElement(grid)))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000)))
+                .moveTo(PointOption.point(null))
+                .release()
+                .perform();
+        
+        //move from element to element
 //        TouchAction t = new TouchAction(driver);
 //        t.press(ElementOption.element(driver.findElement(grid)))
 //                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000)))

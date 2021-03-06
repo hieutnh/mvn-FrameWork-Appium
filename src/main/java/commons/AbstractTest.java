@@ -38,13 +38,15 @@ public class AbstractTest {
 	protected static ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<WebDriver>();
 	protected final Logger log;
 	private static AppiumDriverLocalService server;
+
 	protected AbstractTest() {
 		log = Logger.getLogger(getClass());
 	}
+
 	protected WebDriver driver;
 	String sourceFolder = System.getProperty("user.dir");
 
-	public WebDriver getBrowserDriver(String emulator, String platformName, String platformVersion, String udid, String deviceName,String appUrl) {
+	public WebDriver getBrowserDriver(String emulator, String platformName, String platformVersion, String udid, String deviceName, String appUrl) {
 		URL url;
 		try {
 
@@ -57,6 +59,9 @@ public class AbstractTest {
 				caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
 				caps.setCapability("appPackage", "com.swaglabsmobileapp");
 				caps.setCapability("appActivity", "com.swaglabsmobileapp.SplashActivity");
+				// caps.setCapability("appPackage", "com.dmitrybrant.android.multitouch");
+				// caps.setCapability("appActivity",
+				// "com.dmitrybrant.android.multitouch.MultiTouchActivity");
 				if (emulator.equalsIgnoreCase("true")) {
 					caps.setCapability("avd", deviceName);
 					caps.setCapability("avdLaunchTimeout", 120000);
@@ -65,7 +70,6 @@ public class AbstractTest {
 				}
 				String apkFile = System.getProperty("user.dir") + File.separator + "APK" + File.separator + "Android.SauceLabs.apk";
 				caps.setCapability(MobileCapabilityType.APP, apkFile);
-				
 
 				// driver = new AndroidDriver(url, caps);
 				setDriver(new AndroidDriver(url, caps));
@@ -86,7 +90,7 @@ public class AbstractTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-//		getDriver().get(appUrl);
+		// getDriver().get(appUrl);
 		return getDriver();
 
 	}
@@ -166,62 +170,71 @@ public class AbstractTest {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
 	@BeforeSuite
 	public void beforeSuite() throws Exception, Exception {
 		ThreadContext.put("ROUTINGKEY", "ServerLogs");
-//		server = getAppiumService();
+		// server = getAppiumService();
 		server = getAppiumServerDefault();
-		if(!checkIfAppiumServerIsRunnning(4723)) {
+		if (!checkIfAppiumServerIsRunnning(4723)) {
 			server.start();
-//			server.clearOutPutStreams();
+			// server.clearOutPutStreams();
 			log.info("Appium server started");
 		} else {
 			log.info("Appium server already running");
-		}	
+		}
 	}
-	
+
 	public boolean checkIfAppiumServerIsRunnning(int port) throws Exception {
-	    boolean isAppiumServerRunning = false;
-	    ServerSocket socket;
-	    try {
-	        socket = new ServerSocket(port);
-	        socket.close();
-	    } catch (IOException e) {
-	    	System.out.println("1");
-	        isAppiumServerRunning = true;
-	    } finally {
-	        socket = null;
-	    }
-	    return isAppiumServerRunning;
+		boolean isAppiumServerRunning = false;
+		ServerSocket socket;
+		try {
+			socket = new ServerSocket(port);
+			socket.close();
+		} catch (IOException e) {
+			System.out.println("1");
+			isAppiumServerRunning = true;
+		} finally {
+			socket = null;
+		}
+		return isAppiumServerRunning;
 	}
-	
+
 	@AfterSuite
 	public void afterSuite() {
 		server.stop();
 		log.info("Appium server stopped");
 	}
-	
+
 	public AppiumDriverLocalService getAppiumServerDefault() {
 		return AppiumDriverLocalService.buildDefaultService();
-		
+
 	}
-	
+
 	public AppiumDriverLocalService getAppiumService() {
 		HashMap<String, String> environment = new HashMap<String, String>();
-//		environment.put("PATH", "E:\\Automation\\2.Appium\\sdk AndroidStudio\\platform-tools;E:\\Automation\\2.Appium\\sdk AndroidStudio\\tools;E:\\Automation\\2.Appium\\sdk AndroidStudio\\tools\\bin;" + System.getenv("PATH"));
-//		environment.put("PATH", "C:\\Users\\APC\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Users\\APC\\AppData\\Local\\Android\\Sdk\\tools;C:\\Users\\APC\\AppData\\Local\\Android\\Sdk\\tools\\bin" + System.getenv("PATH"));
-//		environment.put("ANDROID_HOME", "E:\\Automation\\2.Appium\\sdk AndroidStudio");
-//		environment.put("ANDROID_HOME", "C:\\Users\\APC\\AppData\\Local\\Android\\Sdk");
+		// environment.put("PATH", "E:\\Automation\\2.Appium\\sdk
+		// AndroidStudio\\platform-tools;E:\\Automation\\2.Appium\\sdk
+		// AndroidStudio\\tools;E:\\Automation\\2.Appium\\sdk
+		// AndroidStudio\\tools\\bin;" + System.getenv("PATH"));
+		// environment.put("PATH",
+		// "C:\\Users\\APC\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Users\\APC\\AppData\\Local\\Android\\Sdk\\tools;C:\\Users\\APC\\AppData\\Local\\Android\\Sdk\\tools\\bin"
+		// + System.getenv("PATH"));
+		// environment.put("ANDROID_HOME", "E:\\Automation\\2.Appium\\sdk
+		// AndroidStudio");
+		// environment.put("ANDROID_HOME",
+		// "C:\\Users\\APC\\AppData\\Local\\Android\\Sdk");
 		return AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
-//				.usingDriverExecutable(new File("E:\\Automation\\2.Appium\\3.NodeJS\\node.exe"))
-//				.usingDriverExecutable(new File("D:\\java-2020-12\\NodeJS\\node.exe"))
-//				.withAppiumJS(new File("C:\\Users\\hieut\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
-//				.withAppiumJS(new File("C:\\Users\\APC\\AppData\\Roaming\\npm\\node_modules\\appium\\lib\\main.js"))
-				.usingPort(4723)
-				.withArgument(GeneralServerFlag.SESSION_OVERRIDE)
-//				.withEnvironment(environment)
+				// .usingDriverExecutable(new
+				// File("E:\\Automation\\2.Appium\\3.NodeJS\\node.exe"))
+				// .usingDriverExecutable(new File("D:\\java-2020-12\\NodeJS\\node.exe"))
+				// .withAppiumJS(new
+				// File("C:\\Users\\hieut\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
+				// .withAppiumJS(new
+				// File("C:\\Users\\APC\\AppData\\Roaming\\npm\\node_modules\\appium\\lib\\main.js"))
+				.usingPort(4723).withArgument(GeneralServerFlag.SESSION_OVERRIDE)
+				// .withEnvironment(environment)
 				.withLogFile(new File("ServerLogs/server.log")));
 	}
-	
+
 }

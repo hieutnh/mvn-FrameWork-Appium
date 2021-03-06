@@ -1,3 +1,3 @@
-2021-03-03 08:46:42,144 INFO  Android.Topic_01_BasicTest - Appium server started
-2021-03-03 08:46:55,877 INFO  Android.Topic_01_BasicTest - Test With Android
-2021-03-03 08:47:16,551 INFO  Android.Topic_01_BasicTest - Appium server stopped
+2021-03-06 17:29:44,632 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-06 17:29:54,399 INFO  Android.Topic_06_SwipeLeft - Test With Android
+2021-03-06 17:30:06,815 INFO  Android.Topic_06_SwipeLeft - Appium server stopped

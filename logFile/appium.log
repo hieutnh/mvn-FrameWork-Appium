@@ -120,3 +120,79 @@
 2021-03-03 08:46:42,144 INFO  Android.Topic_01_BasicTest - Appium server started
 2021-03-03 08:46:55,877 INFO  Android.Topic_01_BasicTest - Test With Android
 2021-03-03 08:47:16,551 INFO  Android.Topic_01_BasicTest - Appium server stopped
+2021-03-05 15:17:17,465 INFO  Android.Topic_01_BasicTest - Appium server already running
+2021-03-05 15:17:19,353 INFO  Android.Topic_01_BasicTest - Appium server stopped
+2021-03-05 15:18:47,963 INFO  Android.Topic_01_BasicTest - Appium server already running
+2021-03-05 15:18:49,496 INFO  Android.Topic_01_BasicTest - Appium server stopped
+2021-03-05 15:19:48,125 INFO  Android.Topic_01_BasicTest - Appium server already running
+2021-03-05 15:20:09,600 INFO  Android.Topic_01_BasicTest - Appium server stopped
+2021-03-05 15:20:43,920 INFO  Android.Topic_01_BasicTest - Appium server already running
+2021-03-05 15:21:09,642 INFO  Android.Topic_01_BasicTest - Test With Android
+2021-03-05 15:21:10,841 INFO  Android.Topic_01_BasicTest - Appium server stopped
+2021-03-05 15:21:42,522 INFO  Android.Topic_01_BasicTest - Appium server already running
+2021-03-05 15:21:53,101 INFO  Android.Topic_01_BasicTest - Test With Android
+2021-03-05 15:21:53,764 INFO  Android.Topic_01_BasicTest - Appium server stopped
+2021-03-05 15:22:53,420 INFO  Android.Topic_01_BasicTest - Appium server already running
+2021-03-05 15:22:54,882 INFO  Android.Topic_01_BasicTest - Appium server stopped
+2021-03-05 15:23:12,963 INFO  Android.Topic_01_BasicTest - Appium server already running
+2021-03-05 15:23:14,394 INFO  Android.Topic_01_BasicTest - Appium server stopped
+2021-03-05 15:23:34,461 INFO  Android.Topic_01_BasicTest - Appium server already running
+2021-03-05 15:26:13,165 INFO  Android.Topic_01_BasicTest - Test With Android
+2021-03-05 15:26:31,117 INFO  Android.Topic_01_BasicTest - Appium server stopped
+2021-03-05 16:15:02,235 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-05 16:15:20,120 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-05 16:15:38,879 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped
+2021-03-06 16:59:49,111 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-06 17:00:08,361 INFO  Android.Topic_06_SwipeLeft - Test With Android
+2021-03-06 17:00:13,282 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-06 17:00:46,639 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-06 17:01:02,253 INFO  Android.Topic_06_SwipeLeft - Test With Android
+2021-03-06 17:01:07,166 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-06 17:01:54,566 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-06 17:02:27,272 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-06 17:03:13,171 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-06 17:03:22,473 INFO  Android.Topic_06_SwipeLeft - Test With Android
+2021-03-06 17:03:25,823 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-06 17:04:55,882 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-06 17:05:04,737 INFO  Android.Topic_06_SwipeLeft - Test With Android
+2021-03-06 17:05:08,623 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-06 17:07:16,691 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-06 17:07:27,568 INFO  Android.Topic_06_SwipeLeft - Test With Android
+2021-03-06 17:07:32,086 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-06 17:07:54,504 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-06 17:08:04,659 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-06 17:08:46,408 INFO  Android.Topic_06_SwipeLeft - Appium server started
+2021-03-06 17:08:56,250 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-06 17:09:54,205 INFO  Android.Topic_06_SwipeLeft - Appium server started
+2021-03-06 17:10:01,970 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-06 17:11:54,693 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-06 17:12:03,669 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-06 17:12:18,221 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-06 17:12:24,399 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-06 17:12:44,869 INFO  Android.Topic_06_SwipeLeft - Appium server started
+2021-03-06 17:12:52,473 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-06 17:15:27,980 INFO  Android.Topic_06_SwipeLeft - Appium server started
+2021-03-06 17:15:29,835 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-06 17:17:58,216 INFO  Android.Topic_06_SwipeLeft - Appium server started
+2021-03-06 17:18:21,439 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-06 17:18:54,825 INFO  Android.Topic_06_SwipeLeft - Appium server started
+2021-03-06 17:19:34,856 INFO  Android.Topic_06_SwipeLeft - Test With Android
+2021-03-06 17:20:11,029 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-06 17:20:24,721 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-06 17:20:36,543 INFO  Android.Topic_06_SwipeLeft - Test With Android
+2021-03-06 17:21:02,171 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-06 17:21:28,637 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-06 17:21:39,984 INFO  Android.Topic_06_SwipeLeft - Test With Android
+2021-03-06 17:21:55,465 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-06 17:24:26,299 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-06 17:24:37,578 INFO  Android.Topic_06_SwipeLeft - Test With Android
+2021-03-06 17:24:52,109 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-06 17:26:56,964 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-06 17:27:07,061 INFO  Android.Topic_06_SwipeLeft - Test With Android
+2021-03-06 17:27:27,037 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-06 17:29:11,146 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-06 17:29:21,298 INFO  Android.Topic_06_SwipeLeft - Test With Android
+2021-03-06 17:29:32,647 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-06 17:29:44,632 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-06 17:29:54,399 INFO  Android.Topic_06_SwipeLeft - Test With Android
+2021-03-06 17:30:06,815 INFO  Android.Topic_06_SwipeLeft - Appium server stopped

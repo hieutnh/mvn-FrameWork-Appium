@@ -13,5 +13,8 @@ public class MainMenuPageUIAndroid {
 	public static final String 	url = "//android.widget.EditText[@resource-id='com.android.chrome:id/url_bar']";
 	public static final String 	IMAGEBACKPACK1 = "(//android.view.ViewGroup[@content-desc=\"test-Item\"])[1]/android.view.ViewGroup/android.widget.ImageView";
 	public static final String 	IMAGEBACKPACK2 = "//android.view.ViewGroup[@content-desc=\"test-Image Container\"]/android.widget.ImageView";
+	public static final String 	ADDTOCARDBUTTON = "(//android.view.ViewGroup[@content-desc=\"test-ADD TO CART\"])[1]";
+	public static final String 	BUTTONVIEWCARD = "//android.view.ViewGroup[@content-desc=\"test-Cart\"]/android.view.ViewGroup/android.widget.ImageView";
+	public static final String 	SWIPETOREMOVELINK = "//android.view.ViewGroup[@content-desc=\"test-REMOVE\"]";
 
 }

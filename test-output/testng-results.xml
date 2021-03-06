@@ -2,36 +2,36 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
     <line>
-      <![CDATA[2021-03-03 08:46:42,144 INFO  Android.Topic_01_BasicTest - Appium server started
+      <![CDATA[2021-03-06 17:29:44,632 INFO  Android.Topic_06_SwipeLeft - Appium server already running
 ]]>
     </line>
     <line>
-      <![CDATA[2021-03-03 08:46:55,877 INFO  Android.Topic_01_BasicTest - Test With Android
+      <![CDATA[2021-03-06 17:29:54,399 INFO  Android.Topic_06_SwipeLeft - Test With Android
 ]]>
     </line>
     <line>
-      <![CDATA[2021-03-03 08:47:16,551 INFO  Android.Topic_01_BasicTest - Appium server stopped
+      <![CDATA[2021-03-06 17:30:06,815 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
 ]]>
     </line>
   </reporter-output>
-  <suite started-at="2021-03-03T08:46:42 ICT" name="Suite" finished-at="2021-03-03T08:47:16 ICT" duration-ms="34327">
+  <suite started-at="2021-03-06T17:29:44 ICT" name="Suite" finished-at="2021-03-06T17:30:06 ICT" duration-ms="22160">
     <groups>
     </groups>
-    <test started-at="2021-03-03T08:46:42 ICT" name="Test emulator" finished-at="2021-03-03T08:47:16 ICT" duration-ms="34327">
-      <class name="Android.Topic_01_BasicTest">
-        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:Android.Topic_01_BasicTest@6794ac0b]" started-at="2021-03-03T08:46:39 ICT" name="beforeSuite" finished-at="2021-03-03T08:46:42 ICT" duration-ms="2550" status="PASS">
+    <test started-at="2021-03-06T17:29:44 ICT" name="Test emulator" finished-at="2021-03-06T17:30:06 ICT" duration-ms="22160">
+      <class name="Android.Topic_06_SwipeLeft">
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:Android.Topic_06_SwipeLeft@cbc8d0f]" started-at="2021-03-06T17:29:43 ICT" name="beforeSuite" finished-at="2021-03-06T17:29:44 ICT" duration-ms="748" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[2021-03-03 08:46:42,144 INFO  Android.Topic_01_BasicTest - Appium server started
+              <![CDATA[2021-03-06 17:29:44,632 INFO  Android.Topic_06_SwipeLeft - Appium server already running
 ]]>
             </line>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method is-config="true" signature="deleteAllFileInReportNGScreenShot()[pri:0, instance:Android.Topic_01_BasicTest@6794ac0b]" started-at="2021-03-03T08:46:42 ICT" name="deleteAllFileInReportNGScreenShot" finished-at="2021-03-03T08:46:42 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="deleteAllFileInReportNGScreenShot()[pri:0, instance:Android.Topic_06_SwipeLeft@cbc8d0f]" started-at="2021-03-06T17:29:44 ICT" name="deleteAllFileInReportNGScreenShot" finished-at="2021-03-06T17:29:44 ICT" duration-ms="2" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteAllFileInReportNGScreenShot -->
-        <test-method is-config="true" signature="BeforeClass(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Android.Topic_01_BasicTest@6794ac0b]" started-at="2021-03-03T08:46:42 ICT" name="BeforeClass" finished-at="2021-03-03T08:46:55 ICT" duration-ms="13710" status="PASS">
+        <test-method is-config="true" signature="BeforeClass(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Android.Topic_06_SwipeLeft@cbc8d0f]" started-at="2021-03-06T17:29:44 ICT" name="BeforeClass" finished-at="2021-03-06T17:29:54 ICT" duration-ms="9737" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -45,7 +45,7 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[11.0]]>
+                <![CDATA[9.0]]>
               </value>
             </param>
             <param index="3">
@@ -66,16 +66,16 @@
           </params>
           <reporter-output>
             <line>
-              <![CDATA[2021-03-03 08:46:55,877 INFO  Android.Topic_01_BasicTest - Test With Android
+              <![CDATA[2021-03-06 17:29:54,399 INFO  Android.Topic_06_SwipeLeft - Test With Android
 ]]>
             </line>
           </reporter-output>
         </test-method> <!-- BeforeClass -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Android.Topic_01_BasicTest@6794ac0b]" started-at="2021-03-03T08:46:55 ICT" name="beforeMethod" finished-at="2021-03-03T08:46:56 ICT" duration-ms="541" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Android.Topic_06_SwipeLeft@cbc8d0f]" started-at="2021-03-06T17:29:54 ICT" name="beforeMethod" finished-at="2021-03-06T17:29:55 ICT" duration-ms="809" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC_01_Login_Successfully(java.lang.String)[pri:0, instance:Android.Topic_01_BasicTest@6794ac0b]" started-at="2021-03-03T08:46:56 ICT" name="TC_01_Login_Successfully" finished-at="2021-03-03T08:47:01 ICT" duration-ms="4788" status="PASS">
+        <test-method signature="TC_01_Login_Successfully(java.lang.String)[pri:0, instance:Android.Topic_06_SwipeLeft@cbc8d0f]" started-at="2021-03-06T17:29:55 ICT" name="TC_01_Login_Successfully" finished-at="2021-03-06T17:30:00 ICT" duration-ms="4655" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -86,45 +86,45 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC_01_Login_Successfully -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Android.Topic_01_BasicTest@6794ac0b]" started-at="2021-03-03T08:47:01 ICT" name="afterMethod" finished-at="2021-03-03T08:47:02 ICT" duration-ms="852" status="PASS">
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Android.Topic_06_SwipeLeft@cbc8d0f]" started-at="2021-03-06T17:30:00 ICT" name="afterMethod" finished-at="2021-03-06T17:30:01 ICT" duration-ms="1138" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=TC_01_Login_Successfully status=SUCCESS method=Topic_01_BasicTest.TC_01_Login_Successfully(java.lang.String)[pri:0, instance:Android.Topic_01_BasicTest@6794ac0b] output={null}]]]>
+                <![CDATA[[TestResult name=TC_01_Login_Successfully status=SUCCESS method=Topic_06_SwipeLeft.TC_01_Login_Successfully(java.lang.String)[pri:0, instance:Android.Topic_06_SwipeLeft@cbc8d0f] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Android.Topic_01_BasicTest@6794ac0b]" started-at="2021-03-03T08:47:02 ICT" name="beforeMethod" finished-at="2021-03-03T08:47:02 ICT" duration-ms="451" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Android.Topic_06_SwipeLeft@cbc8d0f]" started-at="2021-03-06T17:30:01 ICT" name="beforeMethod" finished-at="2021-03-06T17:30:01 ICT" duration-ms="608" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC_02_Filter()[pri:0, instance:Android.Topic_01_BasicTest@6794ac0b]" started-at="2021-03-03T08:47:02 ICT" name="TC_02_Filter" finished-at="2021-03-03T08:47:15 ICT" duration-ms="12589" status="PASS">
+        <test-method signature="TC_02_Filter()[pri:0, instance:Android.Topic_06_SwipeLeft@cbc8d0f]" started-at="2021-03-06T17:30:01 ICT" name="TC_02_Filter" finished-at="2021-03-06T17:30:05 ICT" duration-ms="3266" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC_02_Filter -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Android.Topic_01_BasicTest@6794ac0b]" started-at="2021-03-03T08:47:15 ICT" name="afterMethod" finished-at="2021-03-03T08:47:16 ICT" duration-ms="1114" status="PASS">
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Android.Topic_06_SwipeLeft@cbc8d0f]" started-at="2021-03-06T17:30:05 ICT" name="afterMethod" finished-at="2021-03-06T17:30:06 ICT" duration-ms="1667" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=TC_02_Filter status=SUCCESS method=Topic_01_BasicTest.TC_02_Filter()[pri:0, instance:Android.Topic_01_BasicTest@6794ac0b] output={null}]]]>
+                <![CDATA[[TestResult name=TC_02_Filter status=SUCCESS method=Topic_06_SwipeLeft.TC_02_Filter()[pri:0, instance:Android.Topic_06_SwipeLeft@cbc8d0f] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="afterSuite()[pri:0, instance:Android.Topic_01_BasicTest@6794ac0b]" started-at="2021-03-03T08:47:16 ICT" name="afterSuite" finished-at="2021-03-03T08:47:16 ICT" duration-ms="57" status="PASS">
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:Android.Topic_06_SwipeLeft@cbc8d0f]" started-at="2021-03-06T17:30:06 ICT" name="afterSuite" finished-at="2021-03-06T17:30:06 ICT" duration-ms="2" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[2021-03-03 08:47:16,551 INFO  Android.Topic_01_BasicTest - Appium server stopped
+              <![CDATA[2021-03-06 17:30:06,815 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
 ]]>
             </line>
           </reporter-output>
         </test-method> <!-- afterSuite -->
-      </class> <!-- Android.Topic_01_BasicTest -->
+      </class> <!-- Android.Topic_06_SwipeLeft -->
     </test> <!-- Test emulator -->
   </suite> <!-- Suite -->
 </testng-results>

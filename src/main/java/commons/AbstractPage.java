@@ -623,7 +623,7 @@ public class AbstractPage {
 
 	}
 
-	public void scrollToElementMobile(WebDriver driver, String direction) {
+	public void scrollUpDownMobile(WebDriver driver, String direction) {
 		Dimension dim = driver.manage().window().getSize();
 		int x = dim.getWidth() / 2;
 		int startY = 0;
@@ -643,15 +643,36 @@ public class AbstractPage {
 		t.press(PointOption.point(x, startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000))).moveTo(PointOption.point(x, endY)).release().perform();
 	}
 
-	public void scrollToelementMobileAll(WebDriver driver, String locator, String directory) {
+	public void scrollLeftRightMobile(WebDriver driver, int pointstartX, int pointstartY, int pointendX, int pointendY) {
+		Dimension dim = driver.manage().window().getSize();
+		TouchAction t = new TouchAction((PerformsTouchActions) driver);
+		t.press(PointOption.point(pointstartX, pointstartY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000))).moveTo(PointOption.point(pointstartX, pointendY)).release().perform();
+	}
+
+	public void scrollLeftRightMobileAll(WebDriver driver, String locator, int pointstartX, int pointstartY, int pointendX, int pointendY) {
+		for (int i = 0; i < 3; i++) {
+			if (isDisplayToScroll(driver, locator)) {
+				break;
+			} else {
+				scrollLeftRightMobile(driver, pointstartX, pointstartY, pointendX, pointendY);
+
+			}
+		}
+	}
+
+	public void swipeLeftRightMobileAll(WebDriver driver, int pointstartX, int pointstartY, int pointendX, int pointendY) {
+			scrollLeftRightMobile(driver, pointstartX, pointstartY, pointendX, pointendY);
+	}
+
+	public void scrollUpDownMobileAll(WebDriver driver, String locator, String directory) {
 		for (int i = 0; i < 3; i++) {
 			if (isDisplayToScroll(driver, locator)) {
 				break;
 			} else {
 				if (directory.equalsIgnoreCase("up")) {
-					scrollToElementMobile(driver, "up");
+					scrollUpDownMobile(driver, "up");
 				} else {
-					scrollToElementMobile(driver, "down");
+					scrollUpDownMobile(driver, "right");
 				}
 			}
 		}
@@ -704,17 +725,17 @@ public class AbstractPage {
 		element = getElement(driver, locator);
 		int center_X = element.getLocation().getX() + (element.getSize().width / 2);
 		int center_Y = element.getLocation().getY() + (element.getSize().height / 2);
-		
+
 		MultiTouchAction multiTouchAction = new MultiTouchAction((PerformsTouchActions) driver);
-		
+
 		TouchAction zoomOut = new TouchAction((PerformsTouchActions) driver);
 		zoomOut.longPress(PointOption.point(center_X, center_Y - 10)).moveTo(PointOption.point(center_X, center_Y)).perform();
 		TouchAction zoomIn = new TouchAction((PerformsTouchActions) driver);
-		zoomOut.longPress(PointOption.point(center_X, center_Y + 10)).moveTo(PointOption.point(center_X, center_Y +200)).perform();
-		
+		zoomOut.longPress(PointOption.point(center_X, center_Y + 10)).moveTo(PointOption.point(center_X, center_Y + 200)).perform();
+
 		multiTouchAction.add(zoomOut).add(zoomIn).perform();
 	}
-	
+
 	public void zoomINandOut2(WebDriver driver) {
 		Dimension dim = driver.manage().window().getSize();
 		int x = dim.getWidth() / 2;
@@ -722,17 +743,16 @@ public class AbstractPage {
 		int endY = 0;
 		int endY2 = 0;
 
-//		switch (direction) {
-//		case "up":
-//			startY = (int) (dim.getHeight() * 0.7);
-//			endY = (int) (dim.getHeight() * 0.4);
-//			endY2 = (int) (dim.getHeight() * 0.8);
-//			break;
-//		case "down":
-//			startY = (int) (dim.getHeight() * 0.2);
-//			endY = (int) (dim.getHeight() * 0.8);
-//			break;
-//		}
+		// switch (direction) {
+		// case "up":
+		// startY = (int) (dim.getHeight() * 0.7);
+		// endY = (int) (dim.getHeight() * 0.4);
+		// break;
+		// case "down":
+		// startY = (int) (dim.getHeight() * 0.2);
+		// endY = (int) (dim.getHeight() * 0.8);
+		// break;
+		// }
 		TouchAction t = new TouchAction((PerformsTouchActions) driver);
 		t.longPress(PointOption.point(508, 1472)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000))).moveTo(PointOption.point(508, 1800));
 		TouchAction t1 = new TouchAction((PerformsTouchActions) driver);
