@@ -1,3 +1,3 @@
-2021-03-06 23:01:59,557 INFO  Android.Topic_06_SwipeLeft - Appium server already running
-2021-03-06 23:02:08,750 INFO  Android.Topic_06_SwipeLeft - Test With Android
-2021-03-06 23:02:21,926 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-09 17:29:54,012 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 17:30:16,061 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 17:30:46,779 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped

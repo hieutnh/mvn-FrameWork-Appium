@@ -3,13 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="BasicCase.Edition067_Zoom_Touch_Gestures">
+      <class name="Android.Topic_03_ZoomIn_Out">
         <methods>
-          <include name="ZoomInAndOut"/>
-          <include name="tearDown"/>
-          <include name="setUp"/>
+          <include name="afterMethod"/>
+          <include name="deleteAllFileInReportNGScreenShot"/>
+          <include name="beforeMethod"/>
+          <include name="BeforeClass"/>
+          <include name="TC_02_Login_Successfully"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
         </methods>
-      </class> <!-- BasicCase.Edition067_Zoom_Touch_Gestures -->
+      </class> <!-- Android.Topic_03_ZoomIn_Out -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

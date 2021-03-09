@@ -275,3 +275,76 @@
 2021-03-06 23:01:59,557 INFO  Android.Topic_06_SwipeLeft - Appium server already running
 2021-03-06 23:02:08,750 INFO  Android.Topic_06_SwipeLeft - Test With Android
 2021-03-06 23:02:21,926 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-09 16:36:00,575 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-09 16:36:19,585 INFO  Android.Topic_06_SwipeLeft - Test With Android
+2021-03-09 16:36:25,586 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-09 16:36:54,013 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-09 16:37:07,280 INFO  Android.Topic_06_SwipeLeft - Test With Android
+2021-03-09 16:37:09,878 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-09 16:38:22,444 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-09 16:38:32,275 INFO  Android.Topic_06_SwipeLeft - Test With Android
+2021-03-09 16:38:38,168 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-09 16:39:07,205 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-09 16:39:16,792 INFO  Android.Topic_06_SwipeLeft - Test With Android
+2021-03-09 16:39:19,832 INFO  Android.Topic_06_SwipeLeft - Appium server stopped
+2021-03-09 16:43:12,137 INFO  Android.Topic_06_SwipeLeft - Appium server already running
+2021-03-09 16:43:39,085 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 16:43:55,050 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 16:43:56,919 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped
+2021-03-09 16:44:56,063 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 16:45:07,284 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 16:45:08,437 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped
+2021-03-09 16:46:43,112 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 16:46:53,642 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 16:47:08,051 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped
+2021-03-09 16:47:16,646 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 16:47:24,258 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 16:47:37,529 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 16:47:58,993 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped
+2021-03-09 16:51:07,917 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 16:51:22,285 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 16:51:45,028 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped
+2021-03-09 16:52:17,473 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 16:52:30,403 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 16:53:05,049 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 16:53:22,531 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 16:53:50,439 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped
+2021-03-09 16:54:20,791 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 16:54:35,679 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 16:54:53,120 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped
+2021-03-09 16:55:14,561 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 16:55:26,852 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 16:55:57,547 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped
+2021-03-09 16:56:13,721 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 16:56:24,018 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 16:56:52,903 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped
+2021-03-09 16:57:13,641 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 16:57:25,430 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 16:57:42,055 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped
+2021-03-09 16:57:59,455 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 16:58:11,174 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 16:58:31,813 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped
+2021-03-09 16:58:43,278 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 16:58:57,111 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 16:59:17,973 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped
+2021-03-09 16:59:41,184 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 16:59:52,931 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 17:00:14,331 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped
+2021-03-09 17:00:53,772 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 17:01:08,888 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 17:01:34,204 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped
+2021-03-09 17:01:34,476 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 17:01:48,854 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 17:02:09,779 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped
+2021-03-09 17:08:25,943 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 17:08:39,198 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 17:09:02,580 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped
+2021-03-09 17:09:19,947 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 17:09:34,729 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 17:10:00,660 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped
+2021-03-09 17:18:13,213 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 17:18:32,265 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 17:19:06,193 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped
+2021-03-09 17:29:54,012 INFO  Android.Topic_03_ZoomIn_Out - Appium server already running
+2021-03-09 17:30:16,061 INFO  Android.Topic_03_ZoomIn_Out - Test With Android
+2021-03-09 17:30:46,779 INFO  Android.Topic_03_ZoomIn_Out - Appium server stopped
