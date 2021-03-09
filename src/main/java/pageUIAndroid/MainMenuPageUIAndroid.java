@@ -16,5 +16,5 @@ public class MainMenuPageUIAndroid {
 	public static final String 	ADDTOCARDBUTTON = "(//android.view.ViewGroup[@content-desc=\"test-ADD TO CART\"])[1]";
 	public static final String 	BUTTONVIEWCARD = "//android.view.ViewGroup[@content-desc=\"test-Cart\"]/android.view.ViewGroup/android.widget.ImageView";
 	public static final String 	SWIPETOREMOVELINK = "//android.view.ViewGroup[@content-desc=\"test-REMOVE\"]";
-
+	public static final String 	zoomImage = "(//android.view.ViewGroup[@content-desc=\"test-Item\"])[1]/android.view.ViewGroup/android.widget.ImageView";
 }

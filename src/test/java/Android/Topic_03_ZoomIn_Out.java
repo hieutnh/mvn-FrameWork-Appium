@@ -25,20 +25,11 @@ public class Topic_03_ZoomIn_Out extends AbstractTest {
 		driver = getBrowserDriver(emulator, platformName, platformVersion, udid, deviceName, appUrl);
 	}
 
-//	@Parameters({ "platformName" })
-//	@Test
-//	public void TC_01_Login_Successfully(String platformName) {
-//		loginPage = PageGeneratorManager.getLoginPage(driver);
-//		loginPage.inputUserName(platformName, "standard_user");
-//		loginPage.inputPassword("secret_sauce");
-//		mainMenuPage = loginPage.clicktoLoginButton(platformName);
-//
-//	}
-
-	@Parameters({ "platformName" })
+	@Parameters({"platformName"})
 	@Test
-	public void TC_02_Login_Successfully(String platformName) {
+	public void TC_02_Login_Successfully(String platformName) throws InterruptedException {
 		mainMenuPage = PageGeneratorManager.getMainMenu(driver);
+		Thread.sleep(20000);
 		mainMenuPage.zoomInAndOut();
 
 	}

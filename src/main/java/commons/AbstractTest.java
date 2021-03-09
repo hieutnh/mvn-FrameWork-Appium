@@ -57,10 +57,10 @@ public class AbstractTest {
 			switch (platformName) {
 			case "Android":
 				caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
-				caps.setCapability("appPackage", "com.swaglabsmobileapp");
-				caps.setCapability("appActivity", "com.swaglabsmobileapp.SplashActivity");
-//				caps.setCapability("appPackage", "com.google.android.deskclock");
-//				caps.setCapability("appActivity", "com.android.deskclock.DeskClock t21");
+//				caps.setCapability("appPackage", "com.swaglabsmobileapp");
+//				caps.setCapability("appActivity", "com.swaglabsmobileapp.SplashActivity");
+				caps.setCapability("appPackage", "com.google.android.apps.maps");
+				caps.setCapability("appActivity", "com.google.android.maps.MapsActivity");
 				if (emulator.equalsIgnoreCase("true")) {
 					caps.setCapability("avd", deviceName);
 					caps.setCapability("avdLaunchTimeout", 120000);

@@ -19,8 +19,8 @@
 		<parameter name="udid" value="1876ca52" />
 		<parameter name="deviceName" value="Pixel_XL_API_28" />
 		<classes>
-			<!-- <class name="Android.Topic_03_ZoomIn_Out" /> -->
-			<class name="Android.Topic_06_SwipeLeft" />
+			<class name="Android.Topic_03_ZoomIn_Out" />
+			<!-- <class name="Android.Topic_06_SwipeLeft" /> -->
 		</classes>
 	</test>
 

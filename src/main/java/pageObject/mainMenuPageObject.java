@@ -41,8 +41,10 @@ public class mainMenuPageObject extends AbstractPage {
 		sendkeyToElement(driver, MainMenuPageUIAndroid.url, value);
 	}
 
-	public void zoomInAndOut() {
-		zoomINandOut2(driver);
+	public void zoomInAndOut() throws InterruptedException {
+//		zoomINandOut(driver, "ZOOM_IN");
+//		Thread.sleep(5000);
+		zoomINandOut(driver, "ZOOM_OUT");
 	}
 
 	public void clickAddToCard() {
@@ -57,7 +59,12 @@ public class mainMenuPageObject extends AbstractPage {
 
 	public void swipeToRemove() {
 //		waitToElementVisible(driver, MainMenuPageUIAndroid.SWIPETOREMOVELINK);
-//		scrollAndSwipeToPoint(driver,"left");
-		scrollFromElementToElement1(driver);
+		scrollAndSwipeToPoint(driver,"left");
+	}
+
+	public void clickImage() {
+		waitToElementVisible(driver, MainMenuPageUIAndroid.zoomImage);
+		clickToElement(driver, MainMenuPageUIAndroid.zoomImage);
+		zoomINandOut(driver, "ZOOM_OUT");
 	}
 }

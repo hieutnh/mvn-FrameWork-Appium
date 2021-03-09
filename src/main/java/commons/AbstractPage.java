@@ -623,6 +623,61 @@ public class AbstractPage {
 		jsExecutor.executeScript("mobile:scroll", scrollObject);
 
 	}
+	
+	public void zoomINandOut(WebDriver driver, String direction) {
+        Dimension size = driver.manage().window().getSize();
+        TouchAction tUp = new TouchAction((PerformsTouchActions) driver);
+        TouchAction tDown = new TouchAction((PerformsTouchActions) driver);
+        MultiTouchAction mt = new MultiTouchAction((PerformsTouchActions) driver);
+
+        int startXup = 0;
+        int endXup = 0;
+        int startYup = 0;
+        int endYup = 0;
+
+        int startXdown = 0;
+        int endXdown = 0;
+        int startYdown = 0;
+        int endYdown = 0;
+
+        switch (direction) {
+            case "ZOOM_IN":
+                endYup = (int) (size.height * 0.20);
+                startYup = (int) (size.height * 0.45);
+                startXup = (size.width / 2);
+                tUp.longPress(PointOption.point(startXup, startYup))
+                        .waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+                        .moveTo(PointOption.point(startXup, endYup)).release();
+
+                endYdown = (int) (size.height * 0.80);
+                startYdown = (int) (size.height * 0.55);
+                startXdown = (size.width / 2);
+                tDown.longPress(PointOption.point(startXdown, startYdown))
+                        .waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+                        .moveTo(PointOption.point(startXdown, endYdown)).release();
+                mt.add(tUp).add(tDown).perform();
+
+                break;
+
+            case "ZOOM_OUT":
+                endYup = (int) (size.height * 0.55);
+                startYup = (int) (size.height * 0.80);
+                startXup = (size.width / 2);
+                tUp.press(PointOption.point(startXup, startYup))
+                        .waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+                        .moveTo(PointOption.point(startXup, endYup)).release();
+
+                endYdown = (int) (size.height * 0.45);
+                startYdown = (int) (size.height * 0.20);
+                startXdown = (size.width / 2);
+                tDown.longPress(PointOption.point(startXdown, startYdown))
+                        .waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+                        .moveTo(PointOption.point(startXdown, endYdown)).release();
+                mt.add(tUp).add(tDown).perform();
+
+                break;
+        }
+    }
 
 	public void scrollAndSwipeToPoint(WebDriver driver, String direction) {
 		Dimension dim = driver.manage().window().getSize();
@@ -638,32 +693,32 @@ public class AbstractPage {
 			startY = (int) (dim.getHeight() * 0.8);
 			endY = (int) (dim.getHeight() * 0.2);
 			TouchAction t = new TouchAction((PerformsTouchActions) driver);
-			t.press(PointOption.point(x, startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000))).moveTo(PointOption.point(x, endY)).release().perform();
+			t.press(PointOption.point(x, startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(300))).moveTo(PointOption.point(x, endY)).release().perform();
 			break;
 		case "down":
 			startY = (int) (dim.getHeight() * 0.2);
 			endY = (int) (dim.getHeight() * 0.8);
 			TouchAction t1 = new TouchAction((PerformsTouchActions) driver);
-			t1.press(PointOption.point(x, startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000))).moveTo(PointOption.point(x, endY)).release().perform();
+			t1.press(PointOption.point(x, startY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(300))).moveTo(PointOption.point(x, endY)).release().perform();
 			break;
 		case "right":
 			startX = (int) (dim.getWidth() * 0.05);
 			endX = (int) (dim.getWidth() * 0.90);
 			TouchAction t2 = new TouchAction((PerformsTouchActions) driver);
-			t2.press(PointOption.point(startX, y)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000))).moveTo(PointOption.point(endX, y)).release().perform();
+			t2.press(PointOption.point(startX, y)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(300))).moveTo(PointOption.point(endX, y)).release().perform();
 			break;
 		case "left":
 			startX = (int) (dim.getWidth() * 0.90);
 			endX = (int) (dim.getWidth() * 0.05);
 			TouchAction t3 = new TouchAction((PerformsTouchActions) driver);
-			t3.press(PointOption.point(startX, y)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000))).moveTo(PointOption.point(endX, y)).release().perform();
+			t3.press(PointOption.point(startX, y)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(300))).moveTo(PointOption.point(endX, y)).release().perform();
 			break;
 		}
 	}
 
 	public void scrollFromElementToElement(WebDriver driver, String direction, String locator1, String locator2) {
 		TouchAction t = new TouchAction((PerformsTouchActions) driver);
-		t.press(ElementOption.element(getElement(driver, locator1))).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500))).moveTo(ElementOption.element(getElement(driver, locator2))).release().perform();
+		t.press(ElementOption.element(getElement(driver, locator1))).waitAction(WaitOptions.waitOptions(Duration.ofMillis(300))).moveTo(ElementOption.element(getElement(driver, locator2))).release().perform();
 	}
 
 
@@ -729,45 +784,6 @@ public class AbstractPage {
 		}
 	}
 
-	public void zoomINandOut(WebDriver driver, String locator) {
-		element = getElement(driver, locator);
-		int center_X = element.getLocation().getX() + (element.getSize().width / 2);
-		int center_Y = element.getLocation().getY() + (element.getSize().height / 2);
-
-		MultiTouchAction multiTouchAction = new MultiTouchAction((PerformsTouchActions) driver);
-
-		TouchAction zoomOut = new TouchAction((PerformsTouchActions) driver);
-		zoomOut.longPress(PointOption.point(center_X, center_Y - 10)).moveTo(PointOption.point(center_X, center_Y)).perform();
-		TouchAction zoomIn = new TouchAction((PerformsTouchActions) driver);
-		zoomOut.longPress(PointOption.point(center_X, center_Y + 10)).moveTo(PointOption.point(center_X, center_Y + 200)).perform();
-
-		multiTouchAction.add(zoomOut).add(zoomIn).perform();
-	}
-
-	public void zoomINandOut2(WebDriver driver) {
-		Dimension dim = driver.manage().window().getSize();
-		int x = dim.getWidth() / 2;
-		int startY = 0;
-		int endY = 0;
-		int endY2 = 0;
-
-		// switch (direction) {
-		// case "up":
-		// startY = (int) (dim.getHeight() * 0.7);
-		// endY = (int) (dim.getHeight() * 0.4);
-		// break;
-		// case "down":
-		// startY = (int) (dim.getHeight() * 0.2);
-		// endY = (int) (dim.getHeight() * 0.8);
-		// break;
-		// }
-		TouchAction t = new TouchAction((PerformsTouchActions) driver);
-		t.longPress(PointOption.point(508, 1472)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000))).moveTo(PointOption.point(508, 1800));
-		TouchAction t1 = new TouchAction((PerformsTouchActions) driver);
-		t1.longPress(PointOption.point(514, 911)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000))).moveTo(PointOption.point(508, 318));
-		MultiTouchAction multiTouchAction = new MultiTouchAction((PerformsTouchActions) driver);
-		multiTouchAction.add(t).add(t1).perform();
-	}
 
 	public String getDirectorySlash(String folderName) {
 		if (isMac() || isUnix() || isSolaris()) {

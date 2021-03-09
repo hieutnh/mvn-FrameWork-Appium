@@ -25,21 +25,10 @@ public class Topic_06_SwipeLeft extends AbstractTest {
 		driver = getBrowserDriver(emulator, platformName, platformVersion, udid, deviceName, appUrl);
 	}
 
-	@Parameters({ "platformName" })
-	@Test
-	public void TC_01_Login_Successfully(String platformName) {
-		loginPage = PageGeneratorManager.getLoginPage(driver);
-		loginPage.inputUserName(platformName, "standard_user");
-		loginPage.inputPassword("secret_sauce");
-		mainMenuPage = loginPage.clicktoLoginButton(platformName);
-
-	}
 
 	@Test
 	public void TC_02_Filter() {
-//		mainMenuPage.clickFilter();
-		mainMenuPage.clickAddToCard();
-		mainMenuPage.clickToViewCard();
+		mainMenuPage = PageGeneratorManager.getMainMenu(driver);
 		mainMenuPage.swipeToRemove();
 
 	}
